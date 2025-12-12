@@ -9,13 +9,72 @@
 
 <body>
 
-    <!-- CONTENIDO PRINCIPAL -->
-    <div id="content">
-        <h1>Reiven Store</h1>
-        <p>Bienvenido a la nueva era digital.</p>
+    <!-- ===== LOADER ===== -->
+    <div id="loader">
+        <img src="assets/logo/reiven-logo-loader.png" alt="Reiven Logo" class="loader-logo">
+
+        <div id="loader-text">Cargando...</div>
+
+        <div class="loader-bar-container">
+            <div class="loader-bar"></div>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <!-- ===== HERO / PRESENTACIÓN ===== -->
+    <header class="hero">
+        <div class="hero-left">
+            <img src="assets/logo/reiven-logo-loader.png" class="hero-logo" alt="Reiven Logo">
+        </div>
 
+        <div class="hero-right">
+            <h1>Reiven Store</h1>
+            <p>Tecnología, IA y servicios digitales premium a tu alcance.</p>
+        </div>
+    </header>
+
+    <!-- ===== BUSCADOR ===== -->
+    <div class="search-wrapper">
+        <input type="text" placeholder="Buscar servicio..." id="searchInput">
+    </div>
+
+    <!-- ===== CATEGORÍAS ===== -->
+    <div class="categories">
+        <button class="category active" data-category="todos">Todos</button>
+        <button class="category" data-category="ia">IA</button>
+        <button class="category" data-category="edicion">Edición</button>
+        <button class="category" data-category="desarrollo">Desarrollo</button>
+        <button class="category" data-category="streaming">Streaming</button>
+    </div>
+
+    <!-- ===== CONTENEDOR DE TARJETAS ===== -->
+    <div class="cards-container">
+
+        <!-- TARJETA EJEMPLO (cambiarás luego con Notion o manual) -->
+        <div class="card" data-category="ia">
+            <img src="assets/images/placeholder.png" alt="Producto">
+            <h3>Ejemplo IA</h3>
+            <p class="price">S/ 10.00</p>
+        </div>
+
+        <div class="card" data-category="edicion">
+            <img src="assets/images/placeholder.png" alt="Producto">
+            <h3>Ejemplo Edición</h3>
+            <p class="price">S/ 10.00</p>
+        </div>
+
+        <div class="card" data-category="streaming">
+            <img src="assets/images/placeholder.png" alt="Producto">
+            <h3>Ejemplo Streaming</h3>
+            <p class="price">S/ 12.00</p>
+        </div>
+
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer>
+        <p>© 2025 Reiven Store — All rights reserved</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
