@@ -1,4 +1,5 @@
-/* ===== GENERAL ===== */
+/* ================= GENERAL ================= */
+
 body {
     margin: 0;
     padding: 0;
@@ -8,7 +9,9 @@ body {
 }
 
 
-/* ===== LOADER ===== */
+
+/* ================= LOADER ================= */
+
 #loader {
     position: fixed;
     inset: 0;
@@ -48,14 +51,23 @@ body {
 }
 
 
-/* ===== HERO ===== */
+
+/* ================= HERO (SECCIÓN PRINCIPAL) ================= */
+
 .hero {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 80px 50px;
-    background: url('assets/images/hero-lines.png');
-    background-size: cover;
+
+    /* Fondo con líneas diagonales estilo Reiven */
+    background: repeating-linear-gradient(
+        -45deg,
+        #0a0a0a,
+        #0a0a0a 10px,
+        #0c0c0c 10px,
+        #0c0c0c 20px
+    );
 }
 
 .hero-logo {
@@ -64,15 +76,19 @@ body {
 
 .hero-right h1 {
     font-size: 55px;
+    margin: 0;
 }
 
 .hero-right p {
+    margin-top: 10px;
     opacity: .8;
     font-size: 20px;
 }
 
 
-/* ===== BUSCADOR ===== */
+
+/* ================= BUSCADOR ================= */
+
 .search-wrapper {
     display: flex;
     justify-content: center;
@@ -86,15 +102,19 @@ body {
     background: #111;
     border: none;
     color: #ccc;
+    font-size: 15px;
 }
 
 
-/* ===== CATEGORÍAS ===== */
+
+/* ================= CATEGORÍAS ================= */
+
 .categories {
     display: flex;
     justify-content: center;
     gap: 12px;
     padding: 10px;
+    flex-wrap: wrap;
 }
 
 .category {
@@ -105,6 +125,12 @@ body {
     cursor: pointer;
     border: 1px solid #333;
     transition: .3s;
+    font-size: 14px;
+}
+
+.category:hover {
+    background: #4c007d;
+    color: #fff;
 }
 
 .category.active {
@@ -114,7 +140,9 @@ body {
 }
 
 
-/* ===== CARDS ===== */
+
+/* ================= TARJETAS ================= */
+
 .cards-container {
     padding: 40px;
     display: grid;
@@ -147,7 +175,9 @@ body {
 }
 
 
-/* ===== MODAL ===== */
+
+/* ================= MODAL ================= */
+
 .modal {
     position: fixed;
     inset: 0;
@@ -172,6 +202,7 @@ body {
     float: right;
     font-size: 25px;
     cursor: pointer;
+    color: white;
 }
 
 .whatsapp-btn {
@@ -186,10 +217,138 @@ body {
 }
 
 
-/* ===== FOOTER ===== */
+
+/* ================= FOOTER ================= */
+
 footer {
     text-align: center;
     padding: 20px;
     background: #050505;
     margin-top: 30px;
+}
+
+
+
+
+
+
+/* ========================================================= */
+/* ====================== RESPONSIVE ======================== */
+/* ========================================================= */
+
+
+/* ================= TABLET ================= */
+
+@media (max-width: 1024px) {
+
+    .hero {
+        padding: 60px 30px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero-left .hero-logo {
+        width: 240px;
+        margin-bottom: 20px;
+    }
+
+    .hero-right h1 {
+        font-size: 42px;
+    }
+
+    .hero-right p {
+        font-size: 18px;
+    }
+
+    .categories {
+        flex-wrap: wrap;
+    }
+}
+
+
+
+/* ================= TELÉFONOS GRANDES ================= */
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 40px 20px;
+    }
+
+    .hero-left .hero-logo {
+        width: 200px;
+    }
+
+    .hero-right h1 {
+        font-size: 36px;
+    }
+
+    .hero-right p {
+        font-size: 16px;
+    }
+
+    #searchInput {
+        width: 85%;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+        padding: 20px;
+    }
+
+    .card {
+        padding: 10px;
+    }
+}
+
+
+
+/* ================= TELÉFONOS PEQUEÑOS ================= */
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding: 30px 10px;
+    }
+
+    .hero-left .hero-logo {
+        width: 160px;
+    }
+
+    .hero-right h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+
+    .hero-right p {
+        font-size: 14px;
+    }
+
+    .categories {
+        gap: 8px;
+    }
+
+    .category {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .card h3 {
+        font-size: 14px;
+    }
+
+    .price {
+        font-size: 12px;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 15px;
+    }
 }
