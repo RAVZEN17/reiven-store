@@ -1,62 +1,167 @@
-/* Fondo general */
+/* ================= GENERAL ================= */
 body {
-    background: #000;
     margin: 0;
     padding: 0;
+    background: #000;
+    color: white;
     font-family: Arial, sans-serif;
-    color: #eee;
 }
 
-/* Loader centrado */
+/* ================= LOADER ================= */
+
 #loader {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background: #000;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 9999;
+    transition: opacity .5s ease;
 }
 
-/* Mascota */
-#loader img {
-    width: 180px;
-    image-rendering: pixelated;
-    animation: glow 1.5s ease-in-out infinite alternate;
+.loader-logo {
+    width: 260px;
+    max-width: 70%;
+    margin-bottom: 20px;
+    animation: glow 2s infinite alternate ease-in-out;
 }
 
-/* Glow animado */
 @keyframes glow {
-    0% { filter: drop-shadow(0 0 8px #a020f0); }
-    100% { filter: drop-shadow(0 0 18px #ff00ff); }
+    0% { filter: drop-shadow(0 0 8px #a000ff); }
+    100% { filter: drop-shadow(0 0 25px #ff0088); }
 }
 
-/* Barra de carga */
-.loader-bar {
-    width: 180px;
-    height: 6px;
-    margin-top: 20px;
-    background: #222;
-    border-radius: 4px;
+#loader-text {
+    font-size: 22px;
+    color: #d792ff;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.loader-bar-container {
+    width: 60%;
+    height: 10px;
+    background: #202020;
+    border-radius: 20px;
     overflow: hidden;
-    position: relative;
 }
 
-.loader-bar::before {
-    content: "";
-    position: absolute;
-    height: 100%;
+.loader-bar {
     width: 0%;
-    background: linear-gradient(90deg, #a020f0, #ff00ff);
-    border-radius: 4px;
-    animation: load 2s linear infinite;
+    height: 100%;
+    background: linear-gradient(90deg,#7b00ff,#ff0088);
+    transition: width .4s;
 }
 
-@keyframes load {
-    0% { width: 0%; }
-    100% { width: 100%; }
+/* ================= HERO ================= */
+
+.hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 80px 50px;
+    background: url('assets/images/hero-lines.png');
+    background-size: cover;
+}
+
+.hero-left .hero-logo {
+    width: 320px;
+    filter: drop-shadow(0 0 10px #7b00ff);
+}
+
+.hero-right h1 {
+    font-size: 60px;
+}
+
+.hero-right p {
+    font-size: 20px;
+    opacity: 0.8;
+}
+
+/* ================= BUSCADOR ================= */
+
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.search-wrapper input {
+    width: 70%;
+    padding: 12px 20px;
+    border-radius: 25px;
+    border: none;
+    background: #111;
+    color: #ccc;
+    font-size: 16px;
+}
+
+/* ================= CATEGORÍAS ================= */
+
+.categories {
+    display: flex;
+    gap: 12px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.category {
+    padding: 8px 18px;
+    border-radius: 20px;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    cursor: pointer;
+    color: #ccc;
+    transition: .25s;
+}
+
+.category:hover {
+    background: #4c007d;
+    color: #fff;
+}
+
+.category.active {
+    background: #7b00ff;
+    color: #fff;
+    border-color: #a24bff;
+    box-shadow: 0 0 10px #7b00ff;
+}
+
+/* ================= TARJETAS ================= */
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    padding: 40px;
+}
+
+.card {
+    background: #111;
+    border: 1px solid #2a2a2a;
+    border-radius: 15px;
+    padding: 15px;
+    text-align: center;
+    transition: .3s;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 0 12px #7b00ff;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    padding: 30px;
+    background: #050505;
+    margin-top: 30px;
 }
