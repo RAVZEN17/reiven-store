@@ -6,12 +6,11 @@
     <title>Reiven Store</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
     <!-- ===== LOADER ===== -->
     <div id="loader">
-        <img src="assets/logo/reiven-logo-loader.png" alt="Reiven Logo" class="loader-logo">
+        <img src="assets/logo/reiven-logo-loader.png" class="loader-logo" alt="Reiven Logo">
 
         <div id="loader-text">Cargando...</div>
 
@@ -20,8 +19,9 @@
         </div>
     </div>
 
-    <!-- ===== HERO / PRESENTACIÓN ===== -->
-    <header class="hero">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
         <div class="hero-left">
             <img src="assets/logo/reiven-logo-loader.png" class="hero-logo" alt="Reiven Logo">
         </div>
@@ -30,12 +30,14 @@
             <h1>Reiven Store</h1>
             <p>Tecnología, IA y servicios digitales premium a tu alcance.</p>
         </div>
-    </header>
+    </section>
+
 
     <!-- ===== BUSCADOR ===== -->
     <div class="search-wrapper">
-        <input type="text" placeholder="Buscar servicio..." id="searchInput">
+        <input type="text" id="searchInput" placeholder="Buscar servicio...">
     </div>
+
 
     <!-- ===== CATEGORÍAS ===== -->
     <div class="categories">
@@ -46,35 +48,58 @@
         <button class="category" data-category="streaming">Streaming</button>
     </div>
 
-    <!-- ===== CONTENEDOR DE TARJETAS ===== -->
+
+    <!-- ===== PRODUCTOS ===== -->
     <div class="cards-container">
 
-        <!-- TARJETA EJEMPLO (cambiarás luego con Notion o manual) -->
-        <div class="card" data-category="ia">
-            <img src="assets/images/placeholder.png" alt="Producto">
-            <h3>Ejemplo IA</h3>
-            <p class="price">S/ 10.00</p>
+        <!-- EJEMPLOS (tú luego los reemplazas por tus productos) -->
+
+        <div class="card" data-category="ia" data-product="ChatGPT Plus" data-price="12">
+            <img src="assets/images/placeholder.png" alt="">
+            <h3>ChatGPT Plus</h3>
+            <p class="price">S/12</p>
         </div>
 
-        <div class="card" data-category="edicion">
-            <img src="assets/images/placeholder.png" alt="Producto">
-            <h3>Ejemplo Edición</h3>
-            <p class="price">S/ 10.00</p>
+        <div class="card" data-category="edicion" data-product="Canva Pro" data-price="15">
+            <img src="assets/images/placeholder.png" alt="">
+            <h3>Canva Pro</h3>
+            <p class="price">S/15</p>
         </div>
 
-        <div class="card" data-category="streaming">
-            <img src="assets/images/placeholder.png" alt="Producto">
-            <h3>Ejemplo Streaming</h3>
-            <p class="price">S/ 12.00</p>
+        <div class="card" data-category="desarrollo" data-product="GitHub Pro" data-price="10">
+            <img src="assets/images/placeholder.png" alt="">
+            <h3>GitHub Pro</h3>
+            <p class="price">S/10</p>
+        </div>
+
+        <div class="card" data-category="streaming" data-product="Netflix 4K" data-price="8">
+            <img src="assets/images/placeholder.png" alt="">
+            <h3>Netflix 4K</h3>
+            <p class="price">S/8</p>
         </div>
 
     </div>
 
+
+    <!-- ===== MODAL ===== -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span id="modalClose" class="close">&times;</span>
+
+            <h2 id="modalTitle"></h2>
+            <p id="modalPrice"></p>
+
+            <a id="whatsappBtn" href="#" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+        </div>
+    </div>
+
+
     <!-- ===== FOOTER ===== -->
     <footer>
-        <p>© 2025 Reiven Store — All rights reserved</p>
+        <p>© 2025 Reiven Store — Todos los derechos reservados.</p>
     </footer>
 
     <script src="script.js"></script>
+
 </body>
 </html>
