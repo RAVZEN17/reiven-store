@@ -1,1 +1,9 @@
-﻿console.log("Reiven Store funcionando.");
+window.addEventListener("load", () => {
+    setTimeout(() => {
+        document.getElementById("loader").style.opacity = "0";
+        setTimeout(() => {
+            document.getElementById("loader").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        }, 500);
+    }, 1500);
+});
