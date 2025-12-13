@@ -1,15 +1,36 @@
-/* ================= GENERAL ================= */
+/* ==========================================
+   REIVEN STORE — STYLE.CSS FINAL
+========================================== */
 
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent; /* elimina cuadro azul en móvil */
 }
 
 body {
     background: #000;
     font-family: Arial, sans-serif;
     color: #fff;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* ================= FONDO DIAGONAL (DEBAJO) ================= */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: repeating-linear-gradient(
+        135deg,
+        rgba(255,255,255,0.03),
+        rgba(255,255,255,0.03) 2px,
+        transparent 2px,
+        transparent 14px
+    );
 }
 
 
@@ -25,17 +46,17 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 9999;
-    transition: opacity .5s ease;
+    transition: opacity .4s ease;
 }
 
 .loader-logo {
-    width: 240px;
+    width: 230px;
     margin-bottom: 20px;
 }
 
 #loader-text {
     font-size: 20px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: #caa8ff;
 }
 
@@ -50,56 +71,37 @@ body {
 .loader-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #7b00ff, #ff00aa);
-    transition: width .3s linear;
+    background: linear-gradient(90deg,#7b00ff,#ff00aa);
+    transition: width .2s linear;
 }
 
 
 
-/* ================= FONDO SUTIL DE LÍNEAS ================= */
-
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(
-        135deg,
-        rgba(255,255,255,0.03),
-        rgba(255,255,255,0.03) 2px,
-        transparent 2px,
-        transparent 12px
-    );
-    pointer-events: none;
-    z-index: 0;
-}
-
-
-
-/* ================= LOGO SLIDER ================= */
+/* ================= CARRUSEL LOGOS ================= */
 
 .logo-slider {
     width: 100%;
     overflow: hidden;
-    background: rgba(255,255,255,0.03);
     padding: 18px 0;
-    margin-top: 10px;
+    background: rgba(255, 255, 255, 0.05);
 }
 
 .logo-track {
     display: flex;
     gap: 60px;
-    animation: scroll 18s linear infinite;
+    animation: scroll 14s linear infinite;
+    width: max-content;
 }
 
 .logo-slider img {
-    height: 35px;
-    opacity: .9;
+    height: 33px;
     filter: brightness(0) invert(1);
+    opacity: 0.9;
 }
 
 @keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    0% {transform: translateX(0);}
+    100% {transform: translateX(-50%);}
 }
 
 
@@ -113,13 +115,13 @@ body::before {
 }
 
 #searchInput {
-    width: 80%;
+    width: 85%;
     padding: 12px 20px;
     background: #111;
-    border: none;
     border-radius: 20px;
     color: #ccc;
     font-size: 16px;
+    border: none;
 }
 
 
@@ -130,17 +132,17 @@ body::before {
     display: flex;
     justify-content: center;
     gap: 12px;
-    padding: 10px 0 20px 0;
+    padding-bottom: 20px;
     flex-wrap: wrap;
 }
 
 .category {
-    background: #1a1a1a;
     padding: 8px 18px;
-    border-radius: 20px;
+    background: #1a1a1a;
     border: 1px solid #333;
-    color: #ccc;
+    border-radius: 20px;
     cursor: pointer;
+    color: #ccc;
     transition: .25s;
 }
 
@@ -151,39 +153,39 @@ body::before {
 }
 
 .category:hover {
-    background: #4c007d;
+    background: #5a00c9;
     color: white;
 }
 
 
 
-/* ================= TARJETAS ================= */
+/* ================= TARJETAS (PRODUCTOS) ================= */
 
 .cards-container {
-    padding: 30px;
+    padding: 25px;
     display: grid;
     gap: 22px;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
 }
 
 .card {
     padding: 15px;
-    border-radius: 15px;
     background: #111;
     border: 1px solid #222;
-    transition: .3s;
+    border-radius: 15px;
     cursor: pointer;
     text-align: center;
+    transition: .25s;
 }
 
 .card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
     box-shadow: 0 0 12px #7b00ff;
 }
 
 .card img {
     width: 100%;
-    height: 180px;
+    aspect-ratio: 1 / 1; /* SIEMPRE CUADRADA */
     object-fit: cover;
     border-radius: 12px;
 }
@@ -194,9 +196,8 @@ body::before {
 }
 
 .stars {
-    font-size: 14px;
     color: #ffc400;
-    margin-top: 4px;
+    margin-top: 5px;
 }
 
 
@@ -206,7 +207,7 @@ body::before {
 .modal {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,.75);
+    background: rgba(0,0,0,0.70);
     display: none;
     justify-content: center;
     align-items: center;
@@ -219,25 +220,41 @@ body::before {
     background: #111;
     border-radius: 20px;
     overflow: hidden;
-    padding-bottom: 20px;
-    animation: fade .3s ease;
+    position: relative;
+    animation: modalIn .25s ease;
 }
 
-@keyframes fade {
-    from { transform: scale(.95); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+@keyframes modalIn {
+    from {transform: scale(.9); opacity: 0;}
+    to   {transform: scale(1); opacity: 1;}
+}
+
+/* ZOOM + RECTÁNGULO + BLUR */
+.modal-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
 }
 
 .modal-img {
     width: 100%;
-    height: 180px;
+    height: 200px;
     object-fit: cover;
+    filter: brightness(1.05);
+}
+
+.modal-img-blur {
+    position: absolute;
+    inset: 0;
+    backdrop-filter: blur(7px);
+    background: rgba(0,0,0,0.15);
 }
 
 .close {
     position: absolute;
-    right: 25px;
-    top: 15px;
+    right: 18px;
+    top: 10px;
     font-size: 30px;
     cursor: pointer;
 }
@@ -247,13 +264,12 @@ body::before {
 }
 
 .stars-modal {
-    font-size: 16px;
     color: #ffc400;
-    margin: -10px 15px 5px 15px;
+    margin: -8px 15px 8px;
 }
 
 #modalDesc {
-    margin: 10px 15px;
+    margin: 0 15px 15px;
     opacity: .85;
     font-size: 15px;
 }
@@ -265,7 +281,6 @@ body::before {
     margin: 10px 15px;
     padding: 12px;
     border-radius: 12px;
-    font-size: 15px;
 }
 
 .plan strong {
@@ -286,16 +301,16 @@ body::before {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: #25d366;
+    background: #25D366;
     padding: 12px 18px;
     border-radius: 12px;
     text-decoration: none;
-    color: #000;
     font-weight: bold;
+    color: #000;
 }
 
 .btn-wa img {
-    height: 20px;
+    height: 22px;
     filter: brightness(0) invert(1);
 }
 
@@ -306,10 +321,16 @@ body::before {
 footer {
     margin-top: 40px;
     padding: 25px;
-    background: #050505;
     text-align: center;
-    font-size: 15px;
+    background: #050505;
     opacity: .8;
+    font-size: 15px;
+}
+
+.footer-wa {
+    color: #25D366;
+    text-decoration: none;
+    font-weight: bold;
 }
 
 
@@ -317,29 +338,17 @@ footer {
 /* ================= RESPONSIVE ================= */
 
 @media (max-width: 768px) {
-    .card img {
-        height: 160px;
-    }
-
-    .modal-img {
-        height: 160px;
+    .modal-img-wrapper {
+        height: 180px;
     }
 }
 
 @media (max-width: 480px) {
     #searchInput {
-        width: 90%;
+        width: 92%;
     }
 
-    .card img {
-        height: 150px;
-    }
-
-    .modal-img {
-        height: 150px;
-    }
-
-    .modal-content {
-        max-width: 330px;
+    .modal-img-wrapper {
+        height: 160px;
     }
 }
