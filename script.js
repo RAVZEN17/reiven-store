@@ -1,42 +1,44 @@
-/* ==========================================
-   LOADER CON PORCENTAJE REAL
-========================================== */
+/* ==========================================================
+   LOADER — PORCENTAJE REAL + ACELERADO + SUAVE
+========================================================== */
 
-let loaderBar = document.querySelector(".loader-bar");
-let loaderText = document.getElementById("loader-text");
 let loader = document.getElementById("loader");
+let loaderText = document.getElementById("loader-text");
+let loaderBar = document.querySelector(".loader-bar");
 
 let progress = 0;
 
 let interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 8) + 4; // sube entre 4% y 12%
+    progress += Math.floor(Math.random() * 10) + 8; // sube 8%–18%
 
     if (progress >= 100) {
         progress = 100;
         loaderText.textContent = "Cargando 100%";
         clearInterval(interval);
 
+        // pequeña pausa final elegante
         setTimeout(() => {
             loaderText.textContent = "Listo";
             loader.style.opacity = "0";
 
             setTimeout(() => {
                 loader.style.display = "none";
-            }, 500);
-        }, 600);
+            }, 350);
+
+        }, 250); // loader más rápido por tu petición
 
     } else {
         loaderText.textContent = `Cargando ${progress}%`;
     }
 
     loaderBar.style.width = progress + "%";
-}, 200);
+}, 120); // intervalo más corto para rapidez
 
 
 
-/* ==========================================
-   FILTRO POR CATEGORÍAS
-========================================== */
+/* ==========================================================
+   CATEGORÍAS — FILTRO PROFESIONAL Y RÁPIDO
+========================================================== */
 
 const categoryButtons = document.querySelectorAll(".category");
 const cards = document.querySelectorAll(".card");
@@ -47,12 +49,12 @@ categoryButtons.forEach(btn => {
         categoryButtons.forEach(b => b.classList.remove("active"));
         btn.classList.add("active");
 
-        const category = btn.dataset.category;
+        let category = btn.dataset.category;
 
         cards.forEach(card => {
-            const cardCategory = card.dataset.category;
+            let cardCat = card.dataset.category;
 
-            if (category === "todos" || category === cardCategory) {
+            if (category === "todos" || cardCat === category) {
                 card.style.display = "block";
             } else {
                 card.style.display = "none";
@@ -62,31 +64,30 @@ categoryButtons.forEach(btn => {
 });
 
 
-/* ==========================================
-   BUSCADOR
-========================================== */
+
+/* ==========================================================
+   BUSCADOR — FUNCIONAL Y SUAVE
+========================================================== */
 
 const searchInput = document.getElementById("searchInput");
 
 searchInput.addEventListener("input", () => {
-    const term = searchInput.value.toLowerCase();
+    let term = searchInput.value.toLowerCase();
 
     cards.forEach(card => {
-        const title = card.querySelector("h3").textContent.toLowerCase();
+        let title = card.querySelector("h3").textContent.toLowerCase();
 
-        if (title.includes(term)) {
-            card.style.display = "block";
-        } else {
-            card.style.display = "none";
-        }
+        card.style.display = title.includes(term)
+            ? "block"
+            : "none";
     });
 });
 
 
 
-/* ==========================================
-   MODAL
-========================================== */
+/* ==========================================================
+   MODAL — ZOOM, BLUR, PRECIOS Y WHATSAPP
+========================================================== */
 
 const modalWindow = document.getElementById("modal");
 const modalImg = document.getElementById("modalImg");
@@ -99,33 +100,35 @@ const whatsappBtn = document.getElementById("whatsappBtn");
 cards.forEach(card => {
     card.addEventListener("click", () => {
 
-        const img = card.dataset.img;
-        const name = card.dataset.product;
-        const desc = card.dataset.description;
+        // Datos del producto
+        let img = card.dataset.img;
+        let name = card.dataset.product;
+        let desc = card.dataset.description;
 
+        // Setear contenido del modal
         modalImg.src = img;
         modalTitle.textContent = name;
         modalDesc.textContent = desc;
 
+        // Limpiar planes anteriores
         modalPlans.innerHTML = "";
 
-        // PLANES DINÁMICOS (plan1, plan2, plan3...)
+        // Agregar planes dinámicos (plan1, plan2, plan3…)
         for (let i = 1; i <= 5; i++) {
-            let plan = card.dataset[`plan${i}`];
-            if (plan) {
-                let parts = plan.split("|");  // texto | soles | dólares
+            let rawPlan = card.dataset[`plan${i}`];
+            if (!rawPlan) continue;
 
-                modalPlans.innerHTML += `
-                    <div class="plan">
-                        <span>${parts[0]} – ${parts[1]}</span>
-                        <strong>${parts[2]}</strong>
-                    </div>
-                `;
-            }
+            let [texto, soles, dolares] = rawPlan.split("|");
+
+            modalPlans.innerHTML += `
+                <div class="plan">
+                    <span>${texto} – ${soles}</span>
+                    <strong>${dolares}</strong>
+                </div>
+            `;
         }
 
-        // WhatsApp link:
-        // AUTOMÁTICO con tu número: +51 941 797 198
+        // Botón WhatsApp — tu número fijo
         whatsappBtn.href =
             `https://wa.me/51941797198?text=Hola,+quiero+comprar:+${encodeURIComponent(name)}`;
 
@@ -133,16 +136,20 @@ cards.forEach(card => {
     });
 });
 
-// Cerrar modal
-modalClose.onclick = () => modalWindow.style.display = "none";
+// Cerrar modal con X
+modalClose.onclick = () => {
+    modalWindow.style.display = "none";
+};
 
+// Cerrar modal tocando fuera del recuadro
 modalWindow.onclick = (e) => {
-    if (e.target === modalWindow) modalWindow.style.display = "none";
+    if (e.target === modalWindow) {
+        modalWindow.style.display = "none";
+    }
 };
 
 
 
-/* ==========================================
-   NADA MÁS QUE HACER AQUÍ →  
-   TODO YA ESTÁ LISTO Y COMPLETAMENTE FUNCIONAL
-========================================== */
+/* ==========================================================
+   FIN DEL SCRIPT — YA NO NECESITAS TOCAR JS
+========================================================== */
