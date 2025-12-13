@@ -6,7 +6,6 @@
 
     <title>Reiven Store</title>
 
-    <!-- META TAGS PARA TIKTOK / WHATSAPP / FACEBOOK -->
     <meta property="og:title" content="Reiven Store" />
     <meta property="og:description" content="IA, Edición, Desarrollo, Música y Cursos" />
     <meta property="og:image" content="https://reiven.tech/assets/logo/reiven-logo-loader.png" />
@@ -18,22 +17,14 @@
 
 <body>
 
-    <!-- ================= LOADER ================= -->
     <div id="loader">
         <img src="assets/logo/reiven-logo-loader.png" class="loader-logo" alt="Reiven Logo" />
         <p id="loader-text">Cargando 0%</p>
-
-        <div class="loader-bar-container">
-            <div class="loader-bar"></div>
-        </div>
+        <div class="loader-bar-container"><div class="loader-bar"></div></div>
     </div>
 
-
-    <!-- ================= CARRUSEL LOGOS BLANCOS ================= -->
     <section class="logo-slider">
         <div class="logo-track">
-
-            <!-- 8 logos -->
             <img src="assets/logos/logo-gemini-ultra.png">
             <img src="assets/logos/logo-gemini-pro.png">
             <img src="assets/logos/logo-chatgpt-plus.png">
@@ -43,7 +34,6 @@
             <img src="assets/logos/logo-figma.png">
             <img src="assets/logos/logo-spotify.png">
 
-            <!-- duplicado para infinito -->
             <img src="assets/logos/logo-gemini-ultra.png">
             <img src="assets/logos/logo-gemini-pro.png">
             <img src="assets/logos/logo-chatgpt-plus.png">
@@ -52,18 +42,13 @@
             <img src="assets/logos/logo-github-pro.png">
             <img src="assets/logos/logo-figma.png">
             <img src="assets/logos/logo-spotify.png">
-
         </div>
     </section>
 
-
-    <!-- ================= BUSCADOR ================= -->
     <div class="search-wrapper">
         <input type="text" id="searchInput" placeholder="Buscar servicio..." autocomplete="off"/>
     </div>
 
-
-    <!-- ================= CATEGORÍAS ================= -->
     <div class="categories">
         <button class="category active" data-category="todos">Todos</button>
         <button class="category" data-category="ia">IA</button>
@@ -73,11 +58,8 @@
         <button class="category" data-category="cursos">Cursos</button>
     </div>
 
-
-    <!-- ================= TARJETAS ================= -->
     <div class="cards-container">
 
-        <!-- IA -->
         <div class="card"
             data-category="ia"
             data-product="Gemini Ultra"
@@ -85,10 +67,8 @@
             data-description="La IA más avanzada de Google: generación de video ilimitada, análisis profundo, multimodal y ultra veloz."
             data-plan1="1 Mes|35 soles|$12"
             data-plan2="1 Año|199 soles|$69">
-
-            <img src="assets/images/gemini-ultra.png" alt="Gemini Ultra" />
-            <h3>Gemini Ultra</h3>
-            <p class="stars">★★★★★</p>
+            <img src="assets/images/gemini-ultra.png" />
+            <h3>Gemini Ultra</h3><p class="stars">★★★★★</p>
         </div>
 
         <div class="card"
@@ -98,10 +78,8 @@
             data-description="Incluye 2TB en Drive, NotebookLM, Whisk, Veo3 y funciones avanzadas de IA multimodal."
             data-plan1="1 Mes|5 soles|$2"
             data-plan2="1 Año|25 soles|$9.90">
-
-            <img src="assets/images/gemini-pro.png" alt="Gemini Pro" />
-            <h3>Gemini Pro</h3>
-            <p class="stars">★★★★★</p>
+            <img src="assets/images/gemini-pro.png" />
+            <h3>Gemini Pro</h3><p class="stars">★★★★★</p>
         </div>
 
         <div class="card"
@@ -111,10 +89,8 @@
             data-description="Acceso a GPT-4.1 y GPT-5.1, velocidad aumentada, análisis de datos y funciones avanzadas."
             data-plan1="1 Mes|20 soles|$7"
             data-plan2="1 Año|99 soles|$29.90">
-
-            <img src="assets/images/chatgpt-plus.png" alt="ChatGPT Plus" />
-            <h3>ChatGPT Plus</h3>
-            <p class="stars">★★★★★</p>
+            <img src="assets/images/chatgpt-plus.png" />
+            <h3>ChatGPT Plus</h3><p class="stars">★★★★★</p>
         </div>
 
         <div class="card"
@@ -124,14 +100,10 @@
             data-description="Todas las IA en una: GPT 5.1, Claude 4.5, Grok 4.1, Sonnet, análisis documental y precisión extrema."
             data-plan1="1 Mes|5 soles|$2"
             data-plan2="1 Año|25 soles|$9.90">
-
-            <img src="assets/images/perplexity-pro.png" alt="Perplexity Pro" />
-            <h3>Perplexity Pro</h3>
-            <p class="stars">★★★★★</p>
+            <img src="assets/images/perplexity-pro.png" />
+            <h3>Perplexity Pro</h3><p class="stars">★★★★★</p>
         </div>
 
-
-        <!-- EDICIÓN -->
         <div class="card"
             data-category="edicion"
             data-product="Canva Pro"
@@ -139,24 +111,18 @@
             data-description="Acceso total a plantillas premium, remover fondo, efectos IA y millones de recursos."
             data-plan1="1 Mes|5 soles|$2"
             data-plan2="1 Año|15 soles|$6">
-
-            <img src="assets/images/canva-pro.png" alt="Canva Pro" />
-            <h3>Canva Pro</h3>
-            <p class="stars">★★★★★</p>
+            <img src="assets/images/canva-pro.png" />
+            <h3>Canva Pro</h3><p class="stars">★★★★★</p>
         </div>
 
-
-        <!-- DESARROLLO -->
         <div class="card"
             data-category="desarrollo"
             data-product="GitHub Pro"
             data-img="assets/images/github-pro.png"
             data-description="Repos ilimitados, herramientas avanzadas, insights premium y funciones exclusivas."
             data-plan1="2 Años|149 soles|$49">
-
-            <img src="assets/images/github-pro.png" alt="GitHub Pro" />
-            <h3>GitHub Pro</h3>
-            <p class="stars">★★★★★</p>
+            <img src="assets/images/github-pro.png" />
+            <h3>GitHub Pro</h3><p class="stars">★★★★★</p>
         </div>
 
         <div class="card"
@@ -165,14 +131,10 @@
             data-img="assets/images/figma.png"
             data-description="Diseño colaborativo profesional, prototipado avanzado y animaciones de alto nivel."
             data-plan1="2 Años|119 soles|$36">
-
-            <img src="assets/images/figma.png" alt="Figma" />
-            <h3>Figma</h3>
-            <p class="stars">★★★★★</p>
+            <img src="assets/images/figma.png" />
+            <h3>Figma</h3><p class="stars">★★★★★</p>
         </div>
 
-
-        <!-- MÚSICA -->
         <div class="card"
             data-category="musica"
             data-product="Spotify"
@@ -180,14 +142,10 @@
             data-description="Spotify Premium sin anuncios, saltos ilimitados y música en alta calidad."
             data-plan1="1 Mes|8 soles|$3"
             data-plan2="3 Meses|20 soles|$7">
-
-            <img src="assets/images/spotify.png" alt="Spotify" />
-            <h3>Spotify</h3>
-            <p class="stars">★★★★★</p>
+            <img src="assets/images/spotify.png" />
+            <h3>Spotify</h3><p class="stars">★★★★★</p>
         </div>
 
-
-        <!-- CURSOS -->
         <div class="card"
             data-category="cursos"
             data-product="Pack Cursos"
@@ -195,23 +153,17 @@
             data-description="Incluye 8 cursos completos de herramientas digitales esenciales."
             data-plan1="1 Curso|19.90 soles|$6"
             data-plan2="Todos los cursos|49.90 soles|$14.90">
-
-            <img src="assets/images/pack-cursos.png" alt="Pack Cursos" />
-            <h3>Pack Cursos</h3>
-            <p class="stars">★★★★★</p>
+            <img src="assets/images/pack-cursos.png" />
+            <h3>Pack Cursos</h3><p class="stars">★★★★★</p>
         </div>
 
     </div>
 
-
-
-    <!-- ================= MODAL ================= -->
     <div id="modal" class="modal">
         <div class="modal-content">
 
             <span id="modalClose" class="close">&times;</span>
 
-            <!-- imagen rectangular con zoom y blur detrás -->
             <div class="modal-img-wrapper">
                 <img id="modalImg" class="modal-img" />
                 <div class="modal-img-blur"></div>
@@ -233,19 +185,15 @@
         </div>
     </div>
 
-
-
-    <!-- ================= FOOTER ================= -->
     <footer>
         <p>Gracias por visitar Reiven Store.</p>
-        <p>Soporte directo: 
+        <p>Soporte directo:
             <a href="https://wa.me/51941797198?text=Hola,+tengo+una+consulta" class="footer-wa">
                 +51 941 797 198
             </a>
         </p>
         <p>© 2025 Reiven Store. Todos los derechos reservados.</p>
     </footer>
-
 
     <script src="script.js"></script>
 </body>
