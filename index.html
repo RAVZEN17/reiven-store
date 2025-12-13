@@ -1,18 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Reiven Store</title>
-    <link rel="stylesheet" href="style.css">
+
+    <!-- META TAGS PARA TIKTOK / WHATSAPP / FACEBOOK -->
+    <meta property="og:title" content="Reiven Store" />
+    <meta property="og:description" content="IA, Edición, Desarrollo, Música y Cursos" />
+    <meta property="og:image" content="https://reiven.tech/assets/logo/reiven-logo-loader.png" />
+    <meta property="og:url" content="https://reiven.tech" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-    <!-- ===== LOADER ===== -->
+    <!-- ================= LOADER ================= -->
     <div id="loader">
-        <img src="assets/logo/reiven-logo-loader.png" class="loader-logo" alt="Reiven Logo">
-
-        <div id="loader-text">Cargando...</div>
+        <img src="assets/logo/reiven-logo-loader.png" class="loader-logo" alt="Reiven Logo" />
+        <p id="loader-text">Cargando 0%</p>
 
         <div class="loader-bar-container">
             <div class="loader-bar"></div>
@@ -20,87 +29,215 @@
     </div>
 
 
-    <!-- ===== HERO ===== -->
-    <section class="hero">
-        <div class="hero-left">
-            <img src="assets/logo/reiven-logo-loader.png" class="hero-logo" alt="Reiven Logo">
-        </div>
+    <!-- ================= CARRUSEL DE LOGOS BLANCOS ================= -->
+    <section class="logo-slider">
+        <div class="logo-track">
+            <img src="assets/logos/logo-gemini-ultra.png" />
+            <img src="assets/logos/logo-gemini-pro.png" />
+            <img src="assets/logos/logo-chatgpt-plus.png" />
+            <img src="assets/logos/logo-perplexity-pro.png" />
+            <img src="assets/logos/logo-canva-pro.png" />
+            <img src="assets/logos/logo-github-pro.png" />
+            <img src="assets/logos/logo-figma.png" />
+            <img src="assets/logos/logo-spotify.png" />
+            <img src="assets/logos/logo-pack-cursos.png" />
 
-        <div class="hero-right">
-            <h1>Reiven Store</h1>
-            <p>Tecnología, IA y servicios digitales premium a tu alcance.</p>
+            <!-- Duplicado para movimiento infinito -->
+            <img src="assets/logos/logo-gemini-ultra.png" />
+            <img src="assets/logos/logo-gemini-pro.png" />
+            <img src="assets/logos/logo-chatgpt-plus.png" />
+            <img src="assets/logos/logo-perplexity-pro.png" />
+            <img src="assets/logos/logo-canva-pro.png" />
+            <img src="assets/logos/logo-github-pro.png" />
+            <img src="assets/logos/logo-figma.png" />
+            <img src="assets/logos/logo-spotify.png" />
+            <img src="assets/logos/logo-pack-cursos.png" />
         </div>
     </section>
 
 
-    <!-- ===== BUSCADOR ===== -->
+    <!-- ================= BUSCADOR ================= -->
     <div class="search-wrapper">
-        <input type="text" id="searchInput" placeholder="Buscar servicio...">
+        <input type="text" id="searchInput" placeholder="Buscar servicio..." />
     </div>
 
 
-    <!-- ===== CATEGORÍAS ===== -->
+    <!-- ================= CATEGORÍAS ================= -->
     <div class="categories">
         <button class="category active" data-category="todos">Todos</button>
         <button class="category" data-category="ia">IA</button>
         <button class="category" data-category="edicion">Edición</button>
         <button class="category" data-category="desarrollo">Desarrollo</button>
-        <button class="category" data-category="streaming">Streaming</button>
+        <button class="category" data-category="musica">Música</button>
+        <button class="category" data-category="cursos">Cursos</button>
     </div>
 
 
-    <!-- ===== PRODUCTOS ===== -->
+    <!-- ================= TARJETAS ================= -->
     <div class="cards-container">
 
-        <!-- EJEMPLOS (tú luego los reemplazas por tus productos) -->
+        <!-- IA -->
+        <div class="card" 
+            data-category="ia"
+            data-product="Gemini Ultra"
+            data-img="assets/images/gemini-ultra.png"
+            data-description="Modelo avanzado Gemini Ultra, ideal para análisis, escritura, programación y tareas avanzadas."
+            data-plan1="1 Mes|35 soles|$12"
+            data-plan2="1 Año|199 soles|$69">
 
-        <div class="card" data-category="ia" data-product="ChatGPT Plus" data-price="12">
-            <img src="assets/images/placeholder.png" alt="">
+            <img src="assets/images/gemini-ultra.png" alt="Gemini Ultra" />
+            <h3>Gemini Ultra</h3>
+            <p class="stars">★★★★★</p>
+        </div>
+
+        <div class="card" 
+            data-category="ia"
+            data-product="Gemini Pro"
+            data-img="assets/images/gemini-pro.png"
+            data-description="Modelo Gemini Pro, ideal para tareas rápidas, eficientes y accesibles."
+            data-plan1="1 Mes|5 soles|$2"
+            data-plan2="1 Año|25 soles|$9.90">
+
+            <img src="assets/images/gemini-pro.png" alt="Gemini Pro" />
+            <h3>Gemini Pro</h3>
+            <p class="stars">★★★★★</p>
+        </div>
+
+        <div class="card" 
+            data-category="ia"
+            data-product="ChatGPT Plus"
+            data-img="assets/images/chatgpt-plus.png"
+            data-description="Acceso a GPT avanzado con velocidad aumentada y prioridad en momentos de alta demanda."
+            data-plan1="1 Mes|20 soles|$7"
+            data-plan2="1 Año|99 soles|$29.90">
+
+            <img src="assets/images/chatgpt-plus.png" alt="ChatGPT Plus" />
             <h3>ChatGPT Plus</h3>
-            <p class="price">S/20</p>
+            <p class="stars">★★★★★</p>
         </div>
 
-        <div class="card" data-category="edicion" data-product="Canva Pro" data-price="15">
-            <img src="assets/images/placeholder.png" alt="">
+        <div class="card" 
+            data-category="ia"
+            data-product="Perplexity Pro"
+            data-img="assets/images/perplexity-pro.png"
+            data-description="Perplexity Pro para investigación profunda, citas exactas y rendimiento superior."
+            data-plan1="1 Mes|5 soles|$2"
+            data-plan2="1 Año|25 soles|$9.90">
+
+            <img src="assets/images/perplexity-pro.png" alt="Perplexity Pro" />
+            <h3>Perplexity Pro</h3>
+            <p class="stars">★★★★★</p>
+        </div>
+
+
+        <!-- EDICIÓN -->
+        <div class="card"
+            data-category="edicion"
+            data-product="Canva Pro"
+            data-img="assets/images/canva-pro.png"
+            data-description="Accede a todas las plantillas premium, herramientas de diseño y eliminación de fondo de Canva."
+            data-plan1="1 Mes|5 soles|$2"
+            data-plan2="1 Año|15 soles|$6">
+
+            <img src="assets/images/canva-pro.png" alt="Canva Pro" />
             <h3>Canva Pro</h3>
-            <p class="price">S/10</p>
+            <p class="stars">★★★★★</p>
         </div>
 
-        <div class="card" data-category="desarrollo" data-product="GitHub Pro" data-price="10">
-            <img src="assets/images/placeholder.png" alt="">
+
+        <!-- DESARROLLO -->
+        <div class="card"
+            data-category="desarrollo"
+            data-product="GitHub Pro"
+            data-img="assets/images/github-pro.png"
+            data-description="GitHub Pro: almacenamiento extra, insights avanzados y herramientas premium."
+            data-plan1="2 Años|149 soles|$49">
+
+            <img src="assets/images/github-pro.png" alt="GitHub Pro" />
             <h3>GitHub Pro</h3>
-            <p class="price">S/249</p>
+            <p class="stars">★★★★★</p>
         </div>
 
-        <div class="card" data-category="streaming" data-product="Netflix 4K" data-price="8">
-            <img src="assets/images/placeholder.png" alt="">
-            <h3>Netflix 4K</h3>
-            <p class="price">S/15</p>
+        <div class="card"
+            data-category="desarrollo"
+            data-product="Figma"
+            data-img="assets/images/figma.png"
+            data-description="Figma versión premium para diseño colaborativo, prototipado y proyectos profesionales."
+            data-plan1="2 Años|119 soles|$36">
+
+            <img src="assets/images/figma.png" alt="Figma" />
+            <h3>Figma</h3>
+            <p class="stars">★★★★★</p>
+        </div>
+
+
+        <!-- MÚSICA -->
+        <div class="card"
+            data-category="musica"
+            data-product="Spotify"
+            data-img="assets/images/spotify.png"
+            data-description="Spotify premium para escuchar música sin anuncios y con saltos ilimitados."
+            data-plan1="1 Mes|8 soles|$3"
+            data-plan2="3 Meses|20 soles|$7">
+
+            <img src="assets/images/spotify.png" alt="Spotify" />
+            <h3>Spotify</h3>
+            <p class="stars">★★★★★</p>
+        </div>
+
+
+        <!-- CURSOS -->
+        <div class="card"
+            data-category="cursos"
+            data-product="Pack Cursos"
+            data-img="assets/images/pack-cursos.png"
+            data-description="Incluye 8 cursos completos para aprender rápidamente herramientas digitales."
+            data-plan1="1 Curso|19.90 soles|$6"
+            data-plan2="Todos los cursos|49.90 soles|$14.90">
+
+            <img src="assets/images/pack-cursos.png" alt="Pack Cursos" />
+            <h3>Pack Cursos</h3>
+            <p class="stars">★★★★★</p>
         </div>
 
     </div>
 
 
-    <!-- ===== MODAL ===== -->
+
+    <!-- ================= MODAL ================= -->
     <div id="modal" class="modal">
         <div class="modal-content">
+
             <span id="modalClose" class="close">&times;</span>
 
-            <h2 id="modalTitle"></h2>
-            <p id="modalPrice"></p>
+            <img id="modalImg" class="modal-img" />
 
-            <a id="whatsappBtn" href="#" target="_blank" class="whatsapp-btn">Contactar por WhatsApp</a>
+            <h2 id="modalTitle"></h2>
+            <p class="stars-modal">★★★★★</p>
+            <p id="modalDesc"></p>
+
+            <div id="modalPlans"></div>
+
+            <div class="whatsapp-area">
+                <a id="whatsappBtn" target="_blank" class="btn-wa">
+                    <img src="assets/icons/whatsapp.png" />
+                    Comprar por WhatsApp
+                </a>
+            </div>
+
         </div>
     </div>
 
 
-    <!-- ===== FOOTER ===== -->
+
+    <!-- ================= FOOTER ================= -->
     <footer>
-        <p>© 2025 Reiven Store — Todos los derechos reservados.</p>
+        <p>Gracias por visitar Reiven Store.</p>
+        <p>Soporte directo: <strong>+51 941 797 198</strong></p>
+        <p>© 2025 Reiven Store. Todos los derechos reservados.</p>
     </footer>
 
-    <script src="script.js"></script>
 
+    <script src="script.js"></script>
 </body>
 </html>
-
