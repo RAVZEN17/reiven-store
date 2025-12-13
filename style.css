@@ -1,13 +1,12 @@
 /* ==========================================
-   REIVEN STORE — STYLE.CSS FINAL
+   REIVEN STORE — STYLE.CSS FINAL V3.0
 ========================================== */
 
-/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent; /* elimina cuadro azul en móvil */
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -18,7 +17,7 @@ body {
     overflow-x: hidden;
 }
 
-/* ================= FONDO DIAGONAL (DEBAJO) ================= */
+/* ===== FONDO DIAGONAL DEBAJO ===== */
 body::before {
     content: "";
     position: absolute;
@@ -33,25 +32,22 @@ body::before {
     );
 }
 
-
-
-/* ================= LOADER ================= */
-
+/* ===== LOADER ===== */
 #loader {
     position: fixed;
     inset: 0;
     background: #000;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
     z-index: 9999;
     transition: opacity .4s ease;
 }
 
 .loader-logo {
-    width: 230px;
-    margin-bottom: 20px;
+    width: 240px;
+    margin-bottom: 18px;
 }
 
 #loader-text {
@@ -62,28 +58,25 @@ body::before {
 
 .loader-bar-container {
     width: 65%;
-    background: #111;
     height: 10px;
+    background: #111;
     border-radius: 10px;
     overflow: hidden;
 }
 
 .loader-bar {
-    height: 100%;
     width: 0%;
+    height: 100%;
     background: linear-gradient(90deg,#7b00ff,#ff00aa);
     transition: width .2s linear;
 }
 
-
-
-/* ================= CARRUSEL LOGOS ================= */
-
+/* ===== CARRUSEL ===== */
 .logo-slider {
     width: 100%;
     overflow: hidden;
     padding: 18px 0;
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255,255,255,0.05);
 }
 
 .logo-track {
@@ -94,7 +87,7 @@ body::before {
 }
 
 .logo-slider img {
-    height: 33px;
+    height: 32px;
     filter: brightness(0) invert(1);
     opacity: 0.9;
 }
@@ -104,30 +97,24 @@ body::before {
     100% {transform: translateX(-50%);}
 }
 
-
-
-/* ================= BUSCADOR ================= */
-
+/* ===== BUSCADOR ===== */
 .search-wrapper {
     display: flex;
     justify-content: center;
-    padding: 20px 0;
+    margin: 20px 0;
 }
 
 #searchInput {
     width: 85%;
     padding: 12px 20px;
     background: #111;
+    border: none;
     border-radius: 20px;
     color: #ccc;
     font-size: 16px;
-    border: none;
 }
 
-
-
-/* ================= CATEGORÍAS ================= */
-
+/* ===== CATEGORÍAS ===== */
 .categories {
     display: flex;
     justify-content: center;
@@ -137,18 +124,18 @@ body::before {
 }
 
 .category {
-    padding: 8px 18px;
     background: #1a1a1a;
     border: 1px solid #333;
+    padding: 8px 18px;
     border-radius: 20px;
-    cursor: pointer;
     color: #ccc;
+    cursor: pointer;
     transition: .25s;
 }
 
 .category.active {
     background: #7b00ff;
-    color: #fff;
+    color: white;
     box-shadow: 0 0 10px #7b00ff;
 }
 
@@ -157,22 +144,19 @@ body::before {
     color: white;
 }
 
-
-
-/* ================= TARJETAS (PRODUCTOS) ================= */
-
+/* ===== CARDS (PRODUCTOS) ===== */
 .cards-container {
     padding: 25px;
     display: grid;
     gap: 22px;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px,1fr));
 }
 
 .card {
     padding: 15px;
+    border-radius: 15px;
     background: #111;
     border: 1px solid #222;
-    border-radius: 15px;
     cursor: pointer;
     text-align: center;
     transition: .25s;
@@ -185,7 +169,7 @@ body::before {
 
 .card img {
     width: 100%;
-    aspect-ratio: 1 / 1; /* SIEMPRE CUADRADA */
+    aspect-ratio: 1 / 1;
     object-fit: cover;
     border-radius: 12px;
 }
@@ -196,14 +180,27 @@ body::before {
 }
 
 .stars {
+    margin-top: 4px;
+    font-size: 14px;
     color: #ffc400;
-    margin-top: 5px;
 }
 
+/* ===== LIMITAR TAMAÑO EN PC (260x260) ===== */
+@media (min-width: 1024px) {
+    .card {
+        width: 260px !important;
+    }
+    .card img {
+        width: 260px !important;
+        height: 260px !important;
+    }
+    .cards-container {
+        justify-items: center;
+        grid-template-columns: repeat(auto-fit, 260px);
+    }
+}
 
-
-/* ================= MODAL ================= */
-
+/* ===== MODAL ===== */
 .modal {
     position: fixed;
     inset: 0;
@@ -229,7 +226,6 @@ body::before {
     to   {transform: scale(1); opacity: 1;}
 }
 
-/* ZOOM + RECTÁNGULO + BLUR */
 .modal-img-wrapper {
     position: relative;
     width: 100%;
@@ -247,8 +243,8 @@ body::before {
 .modal-img-blur {
     position: absolute;
     inset: 0;
-    backdrop-filter: blur(7px);
-    background: rgba(0,0,0,0.15);
+    backdrop-filter: blur(3px);
+    background: rgba(0,0,0,0.05);
 }
 
 .close {
@@ -264,8 +260,8 @@ body::before {
 }
 
 .stars-modal {
-    color: #ffc400;
     margin: -8px 15px 8px;
+    color: #ffc400;
 }
 
 #modalDesc {
@@ -287,10 +283,7 @@ body::before {
     color: #ffcc49;
 }
 
-
-
-/* ================= BOTÓN WHATSAPP ================= */
-
+/* ===== BOTÓN WHATSAPP ===== */
 .whatsapp-area {
     display: flex;
     justify-content: center;
@@ -314,10 +307,7 @@ body::before {
     filter: brightness(0) invert(1);
 }
 
-
-
-/* ================= FOOTER ================= */
-
+/* ===== FOOTER ===== */
 footer {
     margin-top: 40px;
     padding: 25px;
@@ -329,26 +319,16 @@ footer {
 
 .footer-wa {
     color: #25D366;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
 }
 
-
-
-/* ================= RESPONSIVE ================= */
-
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .modal-img-wrapper {
-        height: 180px;
-    }
+    .modal-img-wrapper { height: 180px; }
 }
 
 @media (max-width: 480px) {
-    #searchInput {
-        width: 92%;
-    }
-
-    .modal-img-wrapper {
-        height: 160px;
-    }
+    #searchInput { width: 92%; }
+    .modal-img-wrapper { height: 160px; }
 }
