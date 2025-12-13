@@ -332,3 +332,19 @@ footer {
     #searchInput { width: 92%; }
     .modal-img-wrapper { height: 160px; }
 }
+
+/* ===== LIMITE DE TAMAÑO EN MOVIL PARA EVITAR EXPANSION ===== */
+@media (max-width: 768px) {
+    .card {
+        width: 90vw !important;
+        max-width: 320px !important;
+        margin: 0 auto;
+    }
+
+    .card img {
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1 !important;
+        object-fit: cover !important;
+    }
+}
