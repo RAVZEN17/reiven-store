@@ -155,7 +155,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const plan = card.dataset[`plan${i}`];
       if (!plan) continue;
 
-      const [label, soles, dollars] = plan.split("|");
+      const [label, solesRaw, dollarsRaw] = plan.split("|");
+      const soles = solesRaw.replace(/[^\d.,]/g, "");
+      const dollars = dollarsRaw ? dollarsRaw.replace(/[^0-9.,]/g, "") : "";
       modalPlans.insertAdjacentHTML("beforeend", `
         <div class="plan">
           <span class="label">${label}</span>
@@ -192,5 +194,5 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   /* ===================== PROTECCIÓN: EVITAR ZOOM EXCESIVO EN MODAL ===================== */
-  // ya manejado por CSS: aspect-ratio 16/9 + object-fit: cover + hover suave.
+  // se maneja con CSS (aspect-ratio 16/9 + object-fit: cover + hover suave).
 });
