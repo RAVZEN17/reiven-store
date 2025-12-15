@@ -21,6 +21,7 @@
 
   <!-- =================== PERFORMANCE =================== -->
   <link rel="preload" as="image" href="assets/logo/reiven-logo-loader.png">
+  <link rel="preload" as="image" href="assets/logo/reiven-logo-wordmark.png">
   <link rel="preload" as="image" href="assets/images/hero-planet.png">
   <link rel="preload" as="style" href="style.css">
   <link rel="stylesheet" href="style.css">
@@ -63,18 +64,20 @@
 
 <main id="inicio">
 
-<!-- =================== HERO (Quantum style + Reiven watermark) =================== -->
+<!-- =================== HERO (Quantum style + wordmark) =================== -->
 <section class="hero hero-quantum" id="heroScene">
   <div class="hero-bg">
     <div class="planet-layer"></div>
     <div class="aura aura-1"></div>
     <div class="aura aura-2"></div>
+    <div class="overlay-dark"></div>
     <div class="particles"></div>
   </div>
 
   <div class="hero-content reveal">
-    <!-- Watermark/wordmark grande en el centro -->
-    <img src="assets/logo/reiven-logo-loader.png" alt="Reiven Store" class="hero-wordmark">
+    <div class="hero-watermark">
+      <img src="assets/logo/reiven-logo-wordmark.png" alt="Reiven Store">
+    </div>
     <h1>Herramientas premium sin pagar de más</h1>
     <p class="hero-subtitle">
       IA, diseño, desarrollo y música para estudiantes, creadores y profesionales.
@@ -88,7 +91,7 @@
     </div>
   </div>
 
-  <!-- Badges flotantes (tipo meteoros) sin tapar el texto -->
+  <!-- Badges flotantes alrededor del wordmark (no tapan textos) -->
   <div class="hero-badges reveal" aria-hidden="true">
     <div class="badge b1">Top IAs</div>
     <div class="badge b2">Mejores herramientas</div>
@@ -304,4 +307,4 @@
 <script src="script.js" defer></script>
 
 </body>
-  </html>
+</html>
