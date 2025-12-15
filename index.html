@@ -41,8 +41,16 @@
 <!-- =================== HEADER =================== -->
 <header class="topbar">
   <div class="topbar-inner">
-    <img src="assets/logo/reiven-logo-loader.png" alt="Reiven Store" class="topbar-logo">
-    <nav class="topbar-nav">
+    <div class="topbar-brand">
+      <img src="assets/logo/reiven-logo-loader.png" alt="Reiven Store" class="topbar-logo">
+      <span class="topbar-title">Reiven Store</span>
+    </div>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="topbar-nav">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="topbar-nav" id="topbar-nav">
       <a href="#inicio">Inicio</a>
       <a href="#productos">Productos</a>
       <a href="#beneficios">Beneficios</a>
@@ -63,15 +71,15 @@
     </p>
 
     <div class="hero-cta">
-      <a href="#productos" class="btn-primary">Ver servicios</a>
-      <a href="#contacto" class="btn-secondary">Hablar por WhatsApp</a>
+      <a href="#productos" class="btn-primary" data-cta="productos">Ver servicios</a>
+      <a href="https://wa.me/51941797198?text=Hola,+quiero+saber+sobre+los+servicios+de+Reiven+Store" target="_blank" rel="noopener" class="btn-secondary" data-cta="whatsapp">Hablar por WhatsApp</a>
     </div>
   </div>
 
   <div class="hero-visual" id="hero3d" aria-hidden="true">
-    <img src="assets/images/gemini-ultra.png" class="hero-float l1" alt="">
-    <img src="assets/images/chatgpt-plus.png" class="hero-float l2" alt="">
-    <img src="assets/images/spotify.png" class="hero-float l3" alt="">
+    <img src="assets/images/gemini-ultra.png" class="hero-float l1" alt="Gemini Ultra">
+    <img src="assets/images/chatgpt-plus.png" class="hero-float l2" alt="ChatGPT Plus">
+    <img src="assets/images/spotify.png" class="hero-float l3" alt="Spotify">
   </div>
 </section>
 
@@ -113,8 +121,8 @@
     data-product="Gemini Ultra"
     data-img="assets/images/gemini-ultra.png"
     data-description="La IA más avanzada de Google: generación de video ilimitada, análisis profundo, multimodal y ultra veloz."
-    data-plan1="1 Mes|35 soles|$12"
-    data-plan2="1 Año|199 soles|$69">
+    data-plan1="1 Mes|35|12"
+    data-plan2="1 Año|199|69">
     <img src="assets/images/gemini-ultra.png" alt="Gemini Ultra">
     <h3>Gemini Ultra</h3>
     <p class="stars">★★★★★</p>
@@ -126,8 +134,8 @@
     data-product="Gemini Pro"
     data-img="assets/images/gemini-pro.png"
     data-description="Incluye 2TB en Drive, NotebookLM, Whisk, Veo3 y funciones avanzadas de IA multimodal."
-    data-plan1="1 Mes|5 soles|$2"
-    data-plan2="1 Año|25 soles|$9.90">
+    data-plan1="1 Mes|5|2"
+    data-plan2="1 Año|25|9.90">
     <img src="assets/images/gemini-pro.png" alt="Gemini Pro">
     <h3>Gemini Pro</h3>
     <p class="stars">★★★★★</p>
@@ -139,8 +147,8 @@
     data-product="ChatGPT Plus"
     data-img="assets/images/chatgpt-plus.png"
     data-description="Acceso a GPT-4.1 y GPT-5.1, análisis de datos y funciones avanzadas."
-    data-plan1="1 Mes|20 soles|$7"
-    data-plan2="1 Año|99 soles|$29.90">
+    data-plan1="1 Mes|20|7"
+    data-plan2="1 Año|99|29.90">
     <img src="assets/images/chatgpt-plus.png" alt="ChatGPT Plus">
     <h3>ChatGPT Plus</h3>
     <p class="stars">★★★★★</p>
@@ -152,8 +160,8 @@
     data-product="Perplexity Pro"
     data-img="assets/images/perplexity-pro.png"
     data-description="Todas las IA en una sola plataforma con análisis documental avanzado."
-    data-plan1="1 Mes|5 soles|$2"
-    data-plan2="1 Año|25 soles|$9.90">
+    data-plan1="1 Mes|5|2"
+    data-plan2="1 Año|25|9.90">
     <img src="assets/images/perplexity-pro.png" alt="Perplexity Pro">
     <h3>Perplexity Pro</h3>
     <p class="stars">★★★★★</p>
@@ -165,8 +173,8 @@
     data-product="Canva Pro"
     data-img="assets/images/canva-pro.png"
     data-description="Plantillas premium, removedor de fondo y herramientas IA."
-    data-plan1="1 Mes|5 soles|$2"
-    data-plan2="1 Año|15 soles|$6">
+    data-plan1="1 Mes|5|2"
+    data-plan2="1 Año|15|6">
     <img src="assets/images/canva-pro.png" alt="Canva Pro">
     <h3>Canva Pro</h3>
     <p class="stars">★★★★★</p>
@@ -178,7 +186,7 @@
     data-product="GitHub Pro"
     data-img="assets/images/github-pro.png"
     data-description="Repositorios privados ilimitados y herramientas avanzadas."
-    data-plan1="2 Años|149 soles|$49">
+    data-plan1="2 Años|149|49">
     <img src="assets/images/github-pro.png" alt="GitHub Pro">
     <h3>GitHub Pro</h3>
     <p class="stars">★★★★★</p>
@@ -190,7 +198,7 @@
     data-product="Figma"
     data-img="assets/images/figma.png"
     data-description="Diseño colaborativo profesional y prototipado avanzado."
-    data-plan1="2 Años|119 soles|$36">
+    data-plan1="2 Años|119|36">
     <img src="assets/images/figma.png" alt="Figma">
     <h3>Figma</h3>
     <p class="stars">★★★★★</p>
@@ -202,8 +210,8 @@
     data-product="Spotify"
     data-img="assets/images/spotify.png"
     data-description="Spotify Premium sin anuncios y música en alta calidad."
-    data-plan1="1 Mes|8 soles|$3"
-    data-plan2="3 Meses|20 soles|$7">
+    data-plan1="1 Mes|8|3"
+    data-plan2="3 Meses|20|7">
     <img src="assets/images/spotify.png" alt="Spotify">
     <h3>Spotify</h3>
     <p class="stars">★★★★★</p>
@@ -215,8 +223,8 @@
     data-product="Pack Cursos"
     data-img="assets/images/pack-cursos.png"
     data-description="Pack completo de cursos de herramientas digitales."
-    data-plan1="1 Curso|19.90 soles|$6"
-    data-plan2="Todos|49.90 soles|$14.90">
+    data-plan1="1 Curso|19.90|6"
+    data-plan2="Todos|49.90|14.90">
     <img src="assets/images/pack-cursos.png" alt="Pack Cursos">
     <h3>Pack Cursos</h3>
     <p class="stars">★★★★★</p>
@@ -227,24 +235,28 @@
 <!-- =================== MODAL =================== -->
 <div id="modal" class="modal" aria-hidden="true">
   <div class="modal-content">
-    <span id="modalClose" class="close">&times;</span>
+    <button id="modalClose" class="close" aria-label="Cerrar modal">&times;</button>
 
     <div class="modal-img-wrapper">
-      <img id="modalImg" class="modal-img" alt="">
+      <div class="modal-img-frame">
+        <img id="modalImg" class="modal-img" alt="">
+      </div>
       <div class="modal-img-blur"></div>
     </div>
 
-    <h2 id="modalTitle"></h2>
-    <p class="stars-modal">★★★★★</p>
-    <p id="modalDesc"></p>
+    <div class="modal-body">
+      <h2 id="modalTitle"></h2>
+      <p class="stars-modal">★★★★★</p>
+      <p id="modalDesc"></p>
 
-    <div id="modalPlans"></div>
+      <div id="modalPlans" class="modal-plans"></div>
 
-    <div class="whatsapp-area">
-      <a id="whatsappBtn" target="_blank" rel="noopener" class="btn-wa">
-        <img src="assets/icons/whatsapp.png" alt="WhatsApp">
-        Comprar por WhatsApp
-      </a>
+      <div class="cta-row">
+        <a id="whatsappBtn" target="_blank" rel="noopener" class="btn-wa">
+          <img src="assets/icons/whatsapp.png" alt="WhatsApp">
+          Comprar por WhatsApp
+        </a>
+      </div>
     </div>
   </div>
 </div>
@@ -252,7 +264,7 @@
 <!-- =================== CONTACTO =================== -->
 <section id="contacto" class="contact">
   <h2>¿Tienes dudas?</h2>
-  <a href="https://wa.me/51941797198?text=Hola,+tengo+una+consulta" class="btn-wa">
+  <a href="https://wa.me/51941797198?text=Hola,+tengo+una+consulta" class="btn-wa" target="_blank" rel="noopener">
     <img src="assets/icons/whatsapp.png" alt="WhatsApp">
     Contactar por WhatsApp
   </a>
