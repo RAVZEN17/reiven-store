@@ -1,5 +1,5 @@
 /* =========================================================
-   REIVEN STORE — SCRIPT.JS (mejorado)
+   REIVEN STORE — SCRIPT.JS (futurista)
    Enfoque: Performance + UX + Responsividad
 ========================================================= */
 
@@ -27,21 +27,33 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }, 120);
 
-  /* ===================== HERO 3D ===================== */
-  const hero3d = document.getElementById("hero3d");
+  /* ===================== HERO PARALLAX ===================== */
+  const heroScene = document.getElementById("heroScene");
+  const planet = document.querySelector(".planet");
+  const badges = document.querySelectorAll(".badge");
+  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const isFinePointer = window.matchMedia("(pointer: fine)").matches;
 
-  if (hero3d && window.matchMedia("(pointer:fine)").matches) {
-    let rect = hero3d.getBoundingClientRect();
+  if (heroScene && planet && isFinePointer && !prefersReduced) {
+    let rect = heroScene.getBoundingClientRect();
 
-    window.addEventListener("mousemove", e => {
+    const handleMove = (e) => {
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
-      hero3d.style.transform = `rotateY(${x * 12}deg) rotateX(${y * -12}deg)`;
-    });
 
-    window.addEventListener("resize", () => {
-      rect = hero3d.getBoundingClientRect();
-    });
+      const maxTilt = 10;
+      planet.style.transform = `translate3d(${x * 12}px, ${y * 12}px, 0) scale(1.02)`;
+      heroScene.style.setProperty("--tilt-x", `${x * maxTilt}deg`);
+      heroScene.style.setProperty("--tilt-y", `${-y * maxTilt}deg`);
+
+      badges.forEach((badge, idx) => {
+        const depth = 6 + idx;
+        badge.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0)`;
+      });
+    };
+
+    window.addEventListener("mousemove", handleMove);
+    window.addEventListener("resize", () => { rect = heroScene.getBoundingClientRect(); });
   }
 
   /* ===================== NAV TOGGLE (MÓVIL) ===================== */
@@ -196,4 +208,3 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===================== PROTECCIÓN: EVITAR ZOOM EXCESIVO EN MODAL ===================== */
   // se maneja con CSS (aspect-ratio 16/9 + object-fit: cover + hover suave).
 });
-
