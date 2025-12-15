@@ -1,272 +1,429 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <!-- =================== META =================== -->
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+/* =========================================================
+   REIVEN STORE — STYLE.CSS
+   Nivel: Premium / Producción
+   Enfoque: Performance + UX + Escalabilidad
+========================================================= */
 
-  <!-- =================== SEO =================== -->
-  <title>Reiven Store | Herramientas Premium de IA, Diseño y Productividad</title>
-  <meta name="description" content="Accede a Gemini Ultra, ChatGPT Plus, Spotify, Canva, GitHub y más herramientas premium a precio accesible. Soporte directo y entrega rápida.">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://reiven.tech/">
+/* ================= RESET & BASE ================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-  <!-- =================== SOCIAL =================== -->
-  <meta property="og:title" content="Reiven Store | Herramientas Premium">
-  <meta property="og:description" content="IA, Diseño, Desarrollo y Música a precio accesible.">
-  <meta property="og:image" content="https://reiven.tech/assets/logo/reiven-logo-loader.png">
-  <meta property="og:url" content="https://reiven.tech">
-  <meta name="twitter:card" content="summary_large_image">
+html {
+  scroll-behavior: smooth;
+}
 
-  <!-- =================== PERFORMANCE =================== -->
-  <link rel="preload" as="image" href="assets/logo/reiven-logo-loader.png">
-  <link rel="preload" as="style" href="style.css">
-  <link rel="stylesheet" href="style.css">
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
 
-  <meta name="theme-color" content="#000000">
-</head>
+/* Fondo sutil premium */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(123,0,255,.12), transparent 40%),
+    radial-gradient(circle at 80% 30%, rgba(255,0,170,.08), transparent 45%),
+    repeating-linear-gradient(
+      135deg,
+      rgba(255,255,255,0.025),
+      rgba(255,255,255,0.025) 2px,
+      transparent 2px,
+      transparent 14px
+    );
+}
 
-<body>
+/* ================= LOADER ================= */
+#loader {
+  position: fixed;
+  inset: 0;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity .4s ease;
+}
 
-<!-- =================== LOADER =================== -->
-<div id="loader" aria-hidden="true">
-  <img src="assets/logo/reiven-logo-loader.png" class="loader-logo" alt="Reiven Logo">
-  <p id="loader-text">Cargando 0%</p>
-  <div class="loader-bar-container">
-    <div class="loader-bar"></div>
-  </div>
-</div>
+.loader-logo {
+  width: 200px;
+  margin-bottom: 20px;
+}
 
-<!-- =================== HEADER =================== -->
-<header class="topbar">
-  <div class="topbar-inner">
-    <img src="assets/logo/reiven-logo-loader.png" alt="Reiven Store" class="topbar-logo">
-    <nav class="topbar-nav">
-      <a href="#inicio">Inicio</a>
-      <a href="#productos">Productos</a>
-      <a href="#beneficios">Beneficios</a>
-      <a href="#opiniones">Opiniones</a>
-      <a href="#contacto">Contacto</a>
-    </nav>
-  </div>
-</header>
+#loader-text {
+  font-size: 18px;
+  color: #caa8ff;
+  margin-bottom: 12px;
+}
 
-<main id="inicio">
+.loader-bar-container {
+  width: min(70%, 420px);
+  height: 10px;
+  background: #111;
+  border-radius: 20px;
+  overflow: hidden;
+}
 
-<!-- =================== HERO =================== -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Herramientas premium sin pagar de más</h1>
-    <p class="hero-subtitle">
-      IA, diseño, desarrollo y música para estudiantes, creadores y profesionales.
-    </p>
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #7b00ff, #ff00aa);
+  transition: width .2s linear;
+}
 
-    <div class="hero-cta">
-      <a href="#productos" class="btn-primary">Ver servicios</a>
-      <a href="#contacto" class="btn-secondary">Hablar por WhatsApp</a>
-    </div>
-  </div>
+/* ================= HEADER ================= */
+.topbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(14px);
+  background: rgba(0,0,0,.6);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
 
-  <div class="hero-visual" id="hero3d" aria-hidden="true">
-    <img src="assets/images/gemini-ultra.png" class="hero-float l1" alt="">
-    <img src="assets/images/chatgpt-plus.png" class="hero-float l2" alt="">
-    <img src="assets/images/spotify.png" class="hero-float l3" alt="">
-  </div>
-</section>
+.topbar-inner {
+  max-width: 1200px;
+  margin: auto;
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
-<!-- =================== LOGOS =================== -->
-<section class="logo-slider" aria-label="Servicios disponibles">
-  <div class="logo-track">
-    <img src="assets/logos/logo-gemini-ultra.png" alt="Gemini Ultra">
-    <img src="assets/logos/logo-gemini-pro.png" alt="Gemini Pro">
-    <img src="assets/logos/logo-chatgpt-plus.png" alt="ChatGPT Plus">
-    <img src="assets/logos/logo-perplexity-pro.png" alt="Perplexity Pro">
-    <img src="assets/logos/logo-canva-pro.png" alt="Canva Pro">
-    <img src="assets/logos/logo-github-pro.png" alt="GitHub Pro">
-    <img src="assets/logos/logo-figma.png" alt="Figma">
-    <img src="assets/logos/logo-spotify.png" alt="Spotify">
-  </div>
-</section>
+.topbar-logo {
+  width: 42px;
+}
 
-<!-- =================== BUSCADOR =================== -->
-<section class="search-wrapper">
-  <input type="text" id="searchInput" placeholder="Buscar servicio..." autocomplete="off">
-</section>
+.topbar-nav {
+  display: flex;
+  gap: 24px;
+}
 
-<!-- =================== CATEGORÍAS =================== -->
-<section class="categories">
-  <button class="category active" data-category="todos">Todos</button>
-  <button class="category" data-category="ia">IA</button>
-  <button class="category" data-category="edicion">Edición</button>
-  <button class="category" data-category="desarrollo">Desarrollo</button>
-  <button class="category" data-category="musica">Música</button>
-  <button class="category" data-category="cursos">Cursos</button>
-</section>
+.topbar-nav a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 15px;
+  position: relative;
+}
 
-<!-- =================== PRODUCTOS =================== -->
-<section id="productos" class="cards-container">
+.topbar-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg,#7b00ff,#ff00aa);
+  transition: .3s;
+}
 
-  <!-- GEMINI ULTRA -->
-  <article class="card"
-    data-category="ia"
-    data-product="Gemini Ultra"
-    data-img="assets/images/gemini-ultra.png"
-    data-description="La IA más avanzada de Google: generación de video ilimitada, análisis profundo, multimodal y ultra veloz."
-    data-plan1="1 Mes|35 soles|$12"
-    data-plan2="1 Año|199 soles|$69">
-    <img src="assets/images/gemini-ultra.png" alt="Gemini Ultra">
-    <h3>Gemini Ultra</h3>
-    <p class="stars">★★★★★</p>
-  </article>
+.topbar-nav a:hover::after {
+  width: 100%;
+}
 
-  <!-- GEMINI PRO -->
-  <article class="card"
-    data-category="ia"
-    data-product="Gemini Pro"
-    data-img="assets/images/gemini-pro.png"
-    data-description="Incluye 2TB en Drive, NotebookLM, Whisk, Veo3 y funciones avanzadas de IA multimodal."
-    data-plan1="1 Mes|5 soles|$2"
-    data-plan2="1 Año|25 soles|$9.90">
-    <img src="assets/images/gemini-pro.png" alt="Gemini Pro">
-    <h3>Gemini Pro</h3>
-    <p class="stars">★★★★★</p>
-  </article>
+/* ================= HERO ================= */
+.hero {
+  min-height: 100vh;
+  padding: 120px 6vw 80px;
+  display: grid;
+  grid-template-columns: 1.1fr .9fr;
+  align-items: center;
+  gap: 40px;
+}
 
-  <!-- CHATGPT PLUS -->
-  <article class="card"
-    data-category="ia"
-    data-product="ChatGPT Plus"
-    data-img="assets/images/chatgpt-plus.png"
-    data-description="Acceso a GPT-4.1 y GPT-5.1, análisis de datos y funciones avanzadas."
-    data-plan1="1 Mes|20 soles|$7"
-    data-plan2="1 Año|99 soles|$29.90">
-    <img src="assets/images/chatgpt-plus.png" alt="ChatGPT Plus">
-    <h3>ChatGPT Plus</h3>
-    <p class="stars">★★★★★</p>
-  </article>
+.hero-content h1 {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.1;
+  background: linear-gradient(90deg,#fff,#caa8ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-  <!-- PERPLEXITY PRO -->
-  <article class="card"
-    data-category="ia"
-    data-product="Perplexity Pro"
-    data-img="assets/images/perplexity-pro.png"
-    data-description="Todas las IA en una sola plataforma con análisis documental avanzado."
-    data-plan1="1 Mes|5 soles|$2"
-    data-plan2="1 Año|25 soles|$9.90">
-    <img src="assets/images/perplexity-pro.png" alt="Perplexity Pro">
-    <h3>Perplexity Pro</h3>
-    <p class="stars">★★★★★</p>
-  </article>
+.hero-subtitle {
+  margin-top: 18px;
+  font-size: clamp(16px, 2vw, 20px);
+  opacity: .85;
+  max-width: 520px;
+}
 
-  <!-- CANVA PRO -->
-  <article class="card"
-    data-category="edicion"
-    data-product="Canva Pro"
-    data-img="assets/images/canva-pro.png"
-    data-description="Plantillas premium, removedor de fondo y herramientas IA."
-    data-plan1="1 Mes|5 soles|$2"
-    data-plan2="1 Año|15 soles|$6">
-    <img src="assets/images/canva-pro.png" alt="Canva Pro">
-    <h3>Canva Pro</h3>
-    <p class="stars">★★★★★</p>
-  </article>
+.hero-cta {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+}
 
-  <!-- GITHUB PRO -->
-  <article class="card"
-    data-category="desarrollo"
-    data-product="GitHub Pro"
-    data-img="assets/images/github-pro.png"
-    data-description="Repositorios privados ilimitados y herramientas avanzadas."
-    data-plan1="2 Años|149 soles|$49">
-    <img src="assets/images/github-pro.png" alt="GitHub Pro">
-    <h3>GitHub Pro</h3>
-    <p class="stars">★★★★★</p>
-  </article>
+.btn-primary,
+.btn-secondary {
+  padding: 14px 22px;
+  border-radius: 14px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: .25s;
+}
 
-  <!-- FIGMA -->
-  <article class="card"
-    data-category="desarrollo"
-    data-product="Figma"
-    data-img="assets/images/figma.png"
-    data-description="Diseño colaborativo profesional y prototipado avanzado."
-    data-plan1="2 Años|119 soles|$36">
-    <img src="assets/images/figma.png" alt="Figma">
-    <h3>Figma</h3>
-    <p class="stars">★★★★★</p>
-  </article>
+.btn-primary {
+  background: linear-gradient(90deg,#7b00ff,#ff00aa);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(123,0,255,.45);
+}
 
-  <!-- SPOTIFY -->
-  <article class="card"
-    data-category="musica"
-    data-product="Spotify"
-    data-img="assets/images/spotify.png"
-    data-description="Spotify Premium sin anuncios y música en alta calidad."
-    data-plan1="1 Mes|8 soles|$3"
-    data-plan2="3 Meses|20 soles|$7">
-    <img src="assets/images/spotify.png" alt="Spotify">
-    <h3>Spotify</h3>
-    <p class="stars">★★★★★</p>
-  </article>
+.btn-primary:hover {
+  transform: translateY(-2px);
+}
 
-  <!-- PACK CURSOS -->
-  <article class="card"
-    data-category="cursos"
-    data-product="Pack Cursos"
-    data-img="assets/images/pack-cursos.png"
-    data-description="Pack completo de cursos de herramientas digitales."
-    data-plan1="1 Curso|19.90 soles|$6"
-    data-plan2="Todos|49.90 soles|$14.90">
-    <img src="assets/images/pack-cursos.png" alt="Pack Cursos">
-    <h3>Pack Cursos</h3>
-    <p class="stars">★★★★★</p>
-  </article>
+.btn-secondary {
+  border: 1px solid rgba(255,255,255,.25);
+  color: #fff;
+}
 
-</section>
+/* ================= HERO 3D ================= */
+.hero-visual {
+  position: relative;
+  width: 100%;
+  height: 420px;
+  transform-style: preserve-3d;
+}
 
-<!-- =================== MODAL =================== -->
-<div id="modal" class="modal" aria-hidden="true">
-  <div class="modal-content">
-    <span id="modalClose" class="close">&times;</span>
+.hero-float {
+  position: absolute;
+  width: 160px;
+  filter: drop-shadow(0 0 20px rgba(123,0,255,.35));
+  animation: float 6s ease-in-out infinite;
+}
 
-    <div class="modal-img-wrapper">
-      <img id="modalImg" class="modal-img" alt="">
-      <div class="modal-img-blur"></div>
-    </div>
+.hero-float.l1 { top: 20%; left: 10%; }
+.hero-float.l2 { top: 45%; left: 35%; animation-delay: 1s; }
+.hero-float.l3 { top: 25%; left: 60%; animation-delay: 2s; }
 
-    <h2 id="modalTitle"></h2>
-    <p class="stars-modal">★★★★★</p>
-    <p id="modalDesc"></p>
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-16px); }
+}
 
-    <div id="modalPlans"></div>
+/* ================= LOGO SLIDER ================= */
+.logo-slider {
+  margin-top: -40px;
+  padding: 22px 0;
+  background: rgba(255,255,255,.04);
+  overflow: hidden;
+}
 
-    <div class="whatsapp-area">
-      <a id="whatsappBtn" target="_blank" rel="noopener" class="btn-wa">
-        <img src="assets/icons/whatsapp.png" alt="WhatsApp">
-        Comprar por WhatsApp
-      </a>
-    </div>
-  </div>
-</div>
+.logo-track {
+  display: flex;
+  gap: 60px;
+  animation: scroll 18s linear infinite;
+  width: max-content;
+}
 
-<!-- =================== CONTACTO =================== -->
-<section id="contacto" class="contact">
-  <h2>¿Tienes dudas?</h2>
-  <a href="https://wa.me/51941797198?text=Hola,+tengo+una+consulta" class="btn-wa">
-    <img src="assets/icons/whatsapp.png" alt="WhatsApp">
-    Contactar por WhatsApp
-  </a>
-</section>
+.logo-slider img {
+  height: 30px;
+  filter: brightness(0) invert(1);
+  opacity: .9;
+}
 
-</main>
+@keyframes scroll {
+  to { transform: translateX(-50%); }
+}
 
-<!-- =================== FOOTER =================== -->
-<footer class="footer">
-  <p>© 2025 Reiven Store. Todos los derechos reservados.</p>
-</footer>
+/* ================= SEARCH ================= */
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 32px 0 20px;
+}
 
-<!-- =================== JS =================== -->
-<script src="script.js" defer></script>
+#searchInput {
+  width: min(92%, 520px);
+  padding: 14px 22px;
+  border-radius: 30px;
+  background: #111;
+  border: 1px solid #222;
+  color: #ddd;
+  font-size: 16px;
+}
 
-</body>
-</html>
+/* ================= CATEGORIES ================= */
+.categories {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-bottom: 28px;
+}
+
+.category {
+  padding: 8px 18px;
+  border-radius: 20px;
+  background: #111;
+  border: 1px solid #333;
+  color: #ccc;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.category.active {
+  background: #7b00ff;
+  color: #fff;
+  box-shadow: 0 0 14px rgba(123,0,255,.6);
+}
+
+/* ================= CARDS ================= */
+.cards-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px 60px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+  gap: 22px;
+  justify-content: center;
+}
+
+.card {
+  background: #0f0f0f;
+  border: 1px solid #222;
+  border-radius: 18px;
+  padding: 16px;
+  cursor: pointer;
+  transition: .3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 20px rgba(123,0,255,.4);
+}
+
+.card img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.card h3 {
+  margin-top: 12px;
+  font-size: 17px;
+}
+
+.stars {
+  color: #ffc400;
+  margin-top: 4px;
+}
+
+/* ================= MODAL ================= */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.75);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
+.modal-content {
+  width: min(92%, 420px);
+  background: #111;
+  border-radius: 22px;
+  overflow: hidden;
+  animation: modalIn .25s ease;
+}
+
+@keyframes modalIn {
+  from { transform: scale(.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ================= WHATSAPP ================= */
+.btn-wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25D366;
+  padding: 14px 22px;
+  border-radius: 16px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #000;
+}
+
+.btn-wa img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  text-align: center;
+  padding: 28px;
+  background: #050505;
+  border-top: 1px solid rgba(255,255,255,.08);
+  font-size: 14px;
+  opacity: .8;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (min-width: 1400px) {
+  .topbar-inner,
+  .cards-container {
+    max-width: 1400px;
+  }
+
+  .hero {
+    padding: 140px 10vw 110px;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 900px) {
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .hero-visual {
+    height: 300px;
+  }
+
+  .hero-cta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 720px) {
+  .topbar-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .topbar-nav {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .hero {
+    padding-top: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-float {
+    width: 120px;
+  }
+}
