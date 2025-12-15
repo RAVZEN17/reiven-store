@@ -20,6 +20,7 @@
   <meta name="twitter:card" content="summary_large_image">
 
   <!-- =================== PERFORMANCE =================== -->
+  <link rel="preload" as="image" href="assets/logo/reiven-logo-loader.png">
   <link rel="preload" as="image" href="assets/logo/reiven-logo-wordmark.png">
   <link rel="preload" as="image" href="assets/images/hero-planet.png">
   <link rel="preload" as="style" href="style.css">
@@ -32,7 +33,7 @@
 
 <!-- =================== LOADER =================== -->
 <div id="loader" aria-hidden="true">
-  <img src="assets/logo/reiven-logo-wordmark.png" class="loader-logo" alt="Reiven Store">
+  <img src="assets/logo/reiven-logo-loader.png" class="loader-logo" alt="Reiven Logo">
   <p id="loader-text">Cargando 0%</p>
   <div class="loader-bar-container">
     <div class="loader-bar"></div>
@@ -43,7 +44,8 @@
 <header class="topbar">
   <div class="topbar-inner">
     <div class="topbar-brand">
-      <img src="assets/logo/reiven-logo-wordmark.png" alt="Reiven Store" class="topbar-logo">
+      <img src="assets/logo/reiven-logo-loader.png" alt="Reiven Store" class="topbar-logo">
+      <span class="topbar-title">Reiven Store</span>
     </div>
 
     <button class="nav-toggle" aria-expanded="false" aria-controls="topbar-nav">
@@ -63,7 +65,14 @@
 <main id="inicio">
 
 <!-- =================== HERO =================== -->
-<section class="hero hero-fx">
+<section class="hero hero-quantum" id="heroScene">
+  <div class="hero-bg">
+    <div class="planet-layer"></div>
+    <div class="aura aura-1"></div>
+    <div class="aura aura-2"></div>
+    <div class="particles"></div>
+  </div>
+
   <div class="hero-content reveal">
     <img src="assets/logo/reiven-logo-wordmark.png" alt="Reiven Store" class="hero-wordmark">
     <h1>Herramientas premium sin pagar de más</h1>
@@ -79,16 +88,13 @@
     </div>
   </div>
 
-  <div class="hero-visual reveal" id="heroScene" aria-hidden="true">
-    <div class="planet"></div>
-    <div class="hero-badges">
-      <div class="badge b1">Top IAs</div>
-      <div class="badge b2">Mejores herramientas</div>
-      <div class="badge b3">Menor precio</div>
-      <div class="badge b4">Entrega rápida</div>
-      <div class="badge b5">Soporte directo</div>
-    </div>
-    <div class="particles"></div>
+  <!-- “Meteoros” reemplazados por chips rectangulares con borde glow -->
+  <div class="hero-badges reveal">
+    <div class="badge b1">Top IAs</div>
+    <div class="badge b2">Mejores herramientas</div>
+    <div class="badge b3">Menor precio</div>
+    <div class="badge b4">Entrega rápida</div>
+    <div class="badge b5">Soporte directo</div>
   </div>
 </section>
 
