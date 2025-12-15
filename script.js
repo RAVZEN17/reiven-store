@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     whatsappBtn.href =
-      `https://wa.me/51941797198?text=` +
+      `https://api.whatsapp.com/send?phone=51941797198&text=` +
       encodeURIComponent(`Hola, quiero comprar: ${card.dataset.product}`);
 
     modal.style.display = "flex";
@@ -196,3 +196,4 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ===================== PROTECCIÓN: EVITAR ZOOM EXCESIVO EN MODAL ===================== */
   // se maneja con CSS (aspect-ratio 16/9 + object-fit: cover + hover suave).
 });
+
