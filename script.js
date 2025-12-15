@@ -1,7 +1,6 @@
 /* =========================================================
-   REIVEN STORE — SCRIPT.JS
-   Nivel: Producción / Premium
-   Enfoque: Performance + UX + Escalabilidad
+   REIVEN STORE — SCRIPT.JS (mejorado)
+   Enfoque: Performance + UX + Responsividad
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -37,13 +36,30 @@ document.addEventListener("DOMContentLoaded", () => {
     window.addEventListener("mousemove", e => {
       const x = (e.clientX - rect.left) / rect.width - 0.5;
       const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-      hero3d.style.transform =
-        `rotateY(${x * 12}deg) rotateX(${y * -12}deg)`;
+      hero3d.style.transform = `rotateY(${x * 12}deg) rotateX(${y * -12}deg)`;
     });
 
     window.addEventListener("resize", () => {
       rect = hero3d.getBoundingClientRect();
+    });
+  }
+
+  /* ===================== NAV TOGGLE (MÓVIL) ===================== */
+  const navToggle = document.querySelector(".nav-toggle");
+  const topbarNav = document.getElementById("topbar-nav");
+
+  if (navToggle && topbarNav) {
+    navToggle.addEventListener("click", () => {
+      const isOpen = topbarNav.classList.toggle("open");
+      navToggle.setAttribute("aria-expanded", isOpen);
+    });
+
+    // cerrar al hacer click en un enlace
+    topbarNav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        topbarNav.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
     });
   }
 
@@ -94,6 +110,24 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  /* ===================== ESTADOS DE CTAs HERO ===================== */
+  const heroCtas = document.querySelectorAll("[data-cta]");
+  const activateCta = (cta) => {
+    heroCtas.forEach(btn => {
+      if (btn === cta) {
+        btn.classList.add("btn-active");
+        btn.classList.remove("btn-inactive");
+      } else {
+        btn.classList.remove("btn-active");
+        btn.classList.add("btn-inactive");
+      }
+    });
+  };
+
+  heroCtas.forEach(btn => {
+    btn.addEventListener("click", () => activateCta(btn));
+  });
+
   /* ===================== MODAL ===================== */
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modalImg");
@@ -103,44 +137,60 @@ document.addEventListener("DOMContentLoaded", () => {
   const modalClose = document.getElementById("modalClose");
   const whatsappBtn = document.getElementById("whatsappBtn");
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => {
-      modalImg.src = card.dataset.img;
-      modalImg.alt = card.dataset.product;
-      modalTitle.textContent = card.dataset.product;
-      modalDesc.textContent = card.dataset.description;
+  // helper para formato de precio: S/ amarillo, $ verde
+  const formatPrice = (soles, dollars) => {
+    const pen = `<span class="pen">S/ ${soles}</span>`;
+    const usd = dollars ? `<span class="usd">$${dollars}</span>` : "";
+    return dollars ? `${pen} / ${usd}` : pen;
+  };
 
-      modalPlans.innerHTML = "";
-      for (let i = 1; i <= 5; i++) {
-        const plan = card.dataset[`plan${i}`];
-        if (!plan) continue;
+  const openModal = (card) => {
+    modalImg.src = card.dataset.img;
+    modalImg.alt = card.dataset.product;
+    modalTitle.textContent = card.dataset.product;
+    modalDesc.textContent = card.dataset.description;
 
-        const [label, soles, dollars] = plan.split("|");
-        modalPlans.innerHTML += `
-          <div class="plan">
-            <span>${label} – ${soles}</span>
-            <strong>${dollars}</strong>
-          </div>
-        `;
-      }
+    modalPlans.innerHTML = "";
+    for (let i = 1; i <= 5; i++) {
+      const plan = card.dataset[`plan${i}`];
+      if (!plan) continue;
 
-      whatsappBtn.href =
-        `https://wa.me/51941797198?text=` +
-        encodeURIComponent(`Hola, quiero comprar: ${card.dataset.product}`);
+      const [label, soles, dollars] = plan.split("|");
+      modalPlans.insertAdjacentHTML("beforeend", `
+        <div class="plan">
+          <span class="label">${label}</span>
+          <span class="price">${formatPrice(soles, dollars)}</span>
+        </div>
+      `);
+    }
 
-      modal.style.display = "flex";
-      document.body.style.overflow = "hidden";
-    });
-  });
+    whatsappBtn.href =
+      `https://wa.me/51941797198?text=` +
+      encodeURIComponent(`Hola, quiero comprar: ${card.dataset.product}`);
+
+    modal.style.display = "flex";
+    document.body.style.overflow = "hidden";
+    setTimeout(() => modal.setAttribute("aria-hidden", "false"), 50);
+  };
 
   const closeModal = () => {
     modal.style.display = "none";
     document.body.style.overflow = "";
+    modal.setAttribute("aria-hidden", "true");
   };
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => openModal(card));
+  });
 
   modalClose.addEventListener("click", closeModal);
   modal.addEventListener("click", e => {
     if (e.target === modal) closeModal();
   });
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape" && modal.style.display === "flex") closeModal();
+  });
 
+  /* ===================== PROTECCIÓN: EVITAR ZOOM EXCESIVO EN MODAL ===================== */
+  // ya manejado por CSS: aspect-ratio 16/9 + object-fit: cover + hover suave.
 });
