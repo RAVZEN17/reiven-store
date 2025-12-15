@@ -1,5 +1,5 @@
 /* =========================================================
-   REIVEN STORE — SCRIPT.JS (futurista)
+   REIVEN STORE — SCRIPT.JS (futurista, animaciones suaves)
    Enfoque: Performance + UX + Responsividad
 ========================================================= */
 
@@ -26,36 +26,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 200);
     }
   }, 120);
-
-  /* ===================== HERO PARALLAX ===================== */
-  const heroScene = document.getElementById("heroScene");
-  const planetLayer = document.querySelector(".planet-layer");
-  const badges = document.querySelectorAll(".hero-badges .badge");
-  const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const isFinePointer = window.matchMedia("(pointer: fine)").matches;
-
-  if (heroScene && planetLayer && isFinePointer && !prefersReduced) {
-    let rect = heroScene.getBoundingClientRect();
-
-    const handleMove = (e) => {
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-
-      const maxTilt = 10;
-      heroScene.style.setProperty("--tilt-x", `${x * maxTilt}deg`);
-      heroScene.style.setProperty("--tilt-y", `${-y * maxTilt}deg`);
-
-      planetLayer.style.transform = `translate3d(${x * 18}px, ${y * 12}px, 0) scale(1.04)`;
-
-      badges.forEach((badge, idx) => {
-        const depth = 6 + idx * 1.5;
-        badge.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0)`;
-      });
-    };
-
-    window.addEventListener("mousemove", handleMove);
-    window.addEventListener("resize", () => { rect = heroScene.getBoundingClientRect(); });
-  }
 
   /* ===================== NAV TOGGLE (MÓVIL) ===================== */
   const navToggle = document.querySelector(".nav-toggle");
@@ -84,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.18 });
 
   document.querySelectorAll(
     ".card, .benefit, .testimonial, .hero-content, .hero-badges"
