@@ -45,10 +45,10 @@ document.addEventListener("DOMContentLoaded", () => {
       heroScene.style.setProperty("--tilt-x", `${x * maxTilt}deg`);
       heroScene.style.setProperty("--tilt-y", `${-y * maxTilt}deg`);
 
-      planetLayer.style.transform = `translate3d(${x * 18}px, ${y * 12}px, 0) scale(1.02)`;
+      planetLayer.style.transform = `translate3d(${x * 18}px, ${y * 12}px, 0) scale(1.04)`;
 
       badges.forEach((badge, idx) => {
-        const depth = 6 + idx * 2;
+        const depth = 6 + idx * 1.5;
         badge.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0)`;
       });
     };
@@ -87,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.15 });
 
   document.querySelectorAll(
-    ".card, .benefit, .testimonial, .hero-content, .hero-badges, .hero-visual"
+    ".card, .benefit, .testimonial, .hero-content, .hero-badges"
   ).forEach(el => revealObserver.observe(el));
 
   /* ===================== FILTRO POR CATEGORÍA ===================== */
