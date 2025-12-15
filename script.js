@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ===================== HERO PARALLAX ===================== */
   const heroScene = document.getElementById("heroScene");
-  const planet = document.querySelector(".planet");
-  const badges = document.querySelectorAll(".badge");
+  const planetLayer = document.querySelector(".planet-layer");
+  const badges = document.querySelectorAll(".hero-badges .badge");
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const isFinePointer = window.matchMedia("(pointer: fine)").matches;
 
-  if (heroScene && planet && isFinePointer && !prefersReduced) {
+  if (heroScene && planetLayer && isFinePointer && !prefersReduced) {
     let rect = heroScene.getBoundingClientRect();
 
     const handleMove = (e) => {
@@ -42,12 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
       const y = (e.clientY - rect.top) / rect.height - 0.5;
 
       const maxTilt = 10;
-      planet.style.transform = `translate3d(${x * 12}px, ${y * 12}px, 0) scale(1.02)`;
       heroScene.style.setProperty("--tilt-x", `${x * maxTilt}deg`);
       heroScene.style.setProperty("--tilt-y", `${-y * maxTilt}deg`);
 
+      planetLayer.style.transform = `translate3d(${x * 18}px, ${y * 12}px, 0) scale(1.02)`;
+
       badges.forEach((badge, idx) => {
-        const depth = 6 + idx;
+        const depth = 6 + idx * 2;
         badge.style.transform = `translate3d(${x * depth}px, ${y * depth}px, 0)`;
       });
     };
@@ -86,7 +87,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }, { threshold: 0.15 });
 
   document.querySelectorAll(
-    ".card, .benefit, .testimonial, .hero-content, .hero-visual"
+    ".card, .benefit, .testimonial, .hero-content, .hero-badges, .hero-visual"
   ).forEach(el => revealObserver.observe(el));
 
   /* ===================== FILTRO POR CATEGORÍA ===================== */
