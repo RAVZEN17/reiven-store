@@ -1,5 +1,5 @@
 /* =========================================================
-   REIVEN STORE — SCRIPT.JS (futurista, animaciones suaves)
+   REIVEN STORE — SCRIPT.JS (limpio, sin chips ni 3D)
    Enfoque: Performance + UX + Responsividad
 ========================================================= */
 
@@ -54,10 +54,10 @@ document.addEventListener("DOMContentLoaded", () => {
         revealObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.18 });
+  }, { threshold: 0.15 });
 
   document.querySelectorAll(
-    ".card, .benefit, .testimonial, .hero-content, .hero-badges"
+    ".card, .benefit, .testimonial, .hero-content"
   ).forEach(el => revealObserver.observe(el));
 
   /* ===================== FILTRO POR CATEGORÍA ===================== */
@@ -164,18 +164,10 @@ document.addEventListener("DOMContentLoaded", () => {
     modal.setAttribute("aria-hidden", "true");
   };
 
-  cards.forEach(card => {
-    card.addEventListener("click", () => openModal(card));
-  });
-
+  cards.forEach(card => card.addEventListener("click", () => openModal(card)));
   modalClose.addEventListener("click", closeModal);
-  modal.addEventListener("click", e => {
-    if (e.target === modal) closeModal();
-  });
+  modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
   document.addEventListener("keydown", e => {
     if (e.key === "Escape" && modal.style.display === "flex") closeModal();
   });
-
-  /* ===================== PROTECCIÓN: EVITAR ZOOM EXCESIVO EN MODAL ===================== */
-  // se maneja con CSS (aspect-ratio 16/9 + object-fit: cover + hover suave).
 });
