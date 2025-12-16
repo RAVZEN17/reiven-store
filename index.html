@@ -1,28 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- =================== META =================== -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <!-- =================== SEO =================== -->
   <title>Reiven Store | Herramientas Premium de IA, Diseño y Productividad</title>
-  <meta name="description" content="Accede a Gemini Ultra, ChatGPT Plus, Spotify, Canva, GitHub y más herramientas premium a precio accesible.  Soporte directo y entrega rápida.">
+  <meta name="description" content="Accede a Gemini Ultra, ChatGPT Plus, Spotify, Canva, GitHub y más herramientas premium a precio accesible. Soporte directo y entrega rápida.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://reiven. tech/">
+  <link rel="canonical" href="https://reiven.tech/">
+
+  <!-- =================== SOCIAL =================== -->
   <meta property="og:title" content="Reiven Store | Herramientas Premium">
-  <meta property="og:description" content="IA, Diseño, Desarrollo y Música a precio accesible. ">
+  <meta property="og:description" content="IA, Diseño, Desarrollo y Música a precio accesible.">
   <meta property="og:image" content="https://reiven.tech/assets/logo/reiven-logo-loader.png">
   <meta property="og:url" content="https://reiven.tech">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" as="image" href="assets/logo/reiven-logo-loader. png">
+
+  <!-- =================== PERFORMANCE =================== -->
+  <link rel="preload" as="image" href="assets/logo/reiven-logo-loader.png">
   <link rel="preload" as="image" href="assets/images/hero-planet.png">
   <link rel="preload" as="style" href="style.css">
-  <link rel="stylesheet" href="style. css">
+  <link rel="stylesheet" href="style.css">
+
   <meta name="theme-color" content="#000000">
 </head>
+
 <body>
 
-<!-- LOADER -->
-<div id="loader">
+<!-- =================== LOADER =================== -->
+<div id="loader" aria-hidden="true">
   <div class="loader-box">
     <img src="assets/logo/reiven-logo-loader.png" class="loader-logo" alt="Reiven Logo">
     <p id="loader-text">Cargando 0%</p>
@@ -32,16 +41,18 @@
   </div>
 </div>
 
-<!-- HEADER -->
+<!-- =================== HEADER =================== -->
 <header class="topbar">
   <div class="topbar-inner">
     <a href="#inicio" class="topbar-brand">
       <img src="assets/logo/reiven-logo-loader.png" alt="Reiven Store" class="topbar-logo">
       <span class="topbar-title">Reiven Store</span>
     </a>
-    <button class="nav-toggle" aria-expanded="false" aria-controls="topbar-nav" aria-label="Menú">
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="topbar-nav" aria-label="Abrir menú">
       <span></span><span></span><span></span>
     </button>
+
     <nav class="topbar-nav" id="topbar-nav">
       <a href="#inicio">Inicio</a>
       <a href="#productos">Productos</a>
@@ -52,145 +63,218 @@
   </div>
 </header>
 
-<!-- MAIN -->
 <main id="inicio">
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Herramientas premium sin pagar de más</h1>
-      <p class="hero-subtitle">IA, diseño, desarrollo y música para estudiantes, creadores y profesionales. </p>
-      <div class="hero-cta">
-        <a href="#productos" class="btn-primary">Ver servicios</a>
-        <a href="https://wa.me/51941797198? text=Hola,+quiero+saber+sobre+los+servicios+de+Reiven+Store" target="_blank" rel="noopener" class="btn-secondary">
-          <img src="assets/icons/whatsapp.png" alt="" class="btn-icon">Hablar por WhatsApp
+<!-- =================== HERO =================== -->
+<section class="hero hero-planet">
+  <div class="hero-content">
+    <h1>Herramientas premium sin pagar de más</h1>
+    <p class="hero-subtitle">
+      IA, diseño, desarrollo y música para estudiantes, creadores y profesionales.
+    </p>
+
+    <div class="hero-cta">
+      <a href="#productos" class="btn-primary">Ver servicios</a>
+      <a href="https://wa.me/51941797198?text=Hola,+quiero+saber+sobre+los+servicios+de+Reiven+Store"
+         target="_blank" rel="noopener"
+         class="btn-secondary">
+         <img src="assets/icons/whatsapp.png" alt="" class="btn-icon">Hablar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =================== LOGOS =================== -->
+<section class="logo-slider" aria-label="Servicios disponibles">
+  <div class="logo-track">
+    <img src="assets/logos/logo-gemini-ultra.png" alt="Gemini Ultra">
+    <img src="assets/logos/logo-gemini-pro.png" alt="Gemini Pro">
+    <img src="assets/logos/logo-chatgpt-plus.png" alt="ChatGPT Plus">
+    <img src="assets/logos/logo-perplexity-pro.png" alt="Perplexity Pro">
+    <img src="assets/logos/logo-canva-pro.png" alt="Canva Pro">
+    <img src="assets/logos/logo-github-pro.png" alt="GitHub Pro">
+    <img src="assets/logos/logo-figma.png" alt="Figma">
+    <img src="assets/logos/logo-spotify.png" alt="Spotify">
+    <!-- duplicados -->
+    <img src="assets/logos/logo-gemini-ultra.png" alt="">
+    <img src="assets/logos/logo-gemini-pro.png" alt="">
+    <img src="assets/logos/logo-chatgpt-plus.png" alt="">
+    <img src="assets/logos/logo-perplexity-pro.png" alt="">
+    <img src="assets/logos/logo-canva-pro.png" alt="">
+    <img src="assets/logos/logo-github-pro.png" alt="">
+    <img src="assets/logos/logo-figma.png" alt="">
+    <img src="assets/logos/logo-spotify.png" alt="">
+  </div>
+</section>
+
+<!-- =================== BUSCADOR =================== -->
+<section class="search-section">
+  <input type="text" id="searchInput" class="search-input" placeholder="Buscar servicio..." autocomplete="off">
+</section>
+
+<!-- =================== CATEGORÍAS =================== -->
+<section class="categories">
+  <button class="category active" data-category="todos">Todos</button>
+  <button class="category" data-category="ia">IA</button>
+  <button class="category" data-category="edicion">Edición</button>
+  <button class="category" data-category="desarrollo">Desarrollo</button>
+  <button class="category" data-category="musica">Música</button>
+  <button class="category" data-category="cursos">Cursos</button>
+</section>
+
+<!-- =================== PRODUCTOS =================== -->
+<section id="productos" class="cards-grid">
+
+  <article class="card"
+    data-category="ia"
+    data-product="Gemini Ultra"
+    data-img="assets/images/gemini-ultra.png"
+    data-description="La IA más avanzada de Google: generación de video ilimitada, análisis profundo, multimodal y ultra veloz."
+    data-plan1="1 Mes|35|12"
+    data-plan2="1 Año|199|69">
+    <img src="assets/images/gemini-ultra.png" alt="Gemini Ultra">
+    <h3>Gemini Ultra</h3>
+    <p class="stars">★★★★★</p>
+  </article>
+
+  <article class="card"
+    data-category="ia"
+    data-product="Gemini Pro"
+    data-img="assets/images/gemini-pro.png"
+    data-description="Incluye 2TB en Drive, NotebookLM, Whisk, Veo3 y funciones avanzadas de IA multimodal."
+    data-plan1="1 Mes|5|2"
+    data-plan2="1 Año|25|9.90">
+    <img src="assets/images/gemini-pro.png" alt="Gemini Pro">
+    <h3>Gemini Pro</h3>
+    <p class="stars">★★★★★</p>
+  </article>
+
+  <article class="card"
+    data-category="ia"
+    data-product="ChatGPT Plus"
+    data-img="assets/images/chatgpt-plus.png"
+    data-description="Acceso a GPT-4.1 y GPT-5.1, análisis de datos y funciones avanzadas."
+    data-plan1="1 Mes|20|7"
+    data-plan2="1 Año|99|29.90">
+    <img src="assets/images/chatgpt-plus.png" alt="ChatGPT Plus">
+    <h3>ChatGPT Plus</h3>
+    <p class="stars">★★★★★</p>
+  </article>
+
+  <article class="card"
+    data-category="ia"
+    data-product="Perplexity Pro"
+    data-img="assets/images/perplexity-pro.png"
+    data-description="Todas las IA en una sola plataforma con análisis documental avanzado."
+    data-plan1="1 Mes|5|2"
+    data-plan2="1 Año|25|9.90">
+    <img src="assets/images/perplexity-pro.png" alt="Perplexity Pro">
+    <h3>Perplexity Pro</h3>
+    <p class="stars">★★★★★</p>
+  </article>
+
+  <article class="card"
+    data-category="edicion"
+    data-product="Canva Pro"
+    data-img="assets/images/canva-pro.png"
+    data-description="Plantillas premium, removedor de fondo y herramientas IA."
+    data-plan1="1 Mes|5|2"
+    data-plan2="1 Año|15|6">
+    <img src="assets/images/canva-pro.png" alt="Canva Pro">
+    <h3>Canva Pro</h3>
+    <p class="stars">★★★★★</p>
+  </article>
+
+  <article class="card"
+    data-category="desarrollo"
+    data-product="GitHub Pro"
+    data-img="assets/images/github-pro.png"
+    data-description="Repositorios privados ilimitados y herramientas avanzadas."
+    data-plan1="2 Años|149|49">
+    <img src="assets/images/github-pro.png" alt="GitHub Pro">
+    <h3>GitHub Pro</h3>
+    <p class="stars">★★★★★</p>
+  </article>
+
+  <article class="card"
+    data-category="desarrollo"
+    data-product="Figma"
+    data-img="assets/images/figma.png"
+    data-description="Diseño colaborativo profesional y prototipado avanzado."
+    data-plan1="2 Años|119|36">
+    <img src="assets/images/figma.png" alt="Figma">
+    <h3>Figma</h3>
+    <p class="stars">★★★★★</p>
+  </article>
+
+  <article class="card"
+    data-category="musica"
+    data-product="Spotify"
+    data-img="assets/images/spotify.png"
+    data-description="Spotify Premium sin anuncios y música en alta calidad."
+    data-plan1="1 Mes|8|3"
+    data-plan2="3 Meses|20|7">
+    <img src="assets/images/spotify.png" alt="Spotify">
+    <h3>Spotify</h3>
+    <p class="stars">★★★★★</p>
+  </article>
+
+  <article class="card"
+    data-category="cursos"
+    data-product="Pack Cursos"
+    data-img="assets/images/pack-cursos.png"
+    data-description="Pack completo de cursos de herramientas digitales."
+    data-plan1="1 Curso|19.90|6"
+    data-plan2="Todos|49.90|14.90">
+    <img src="assets/images/pack-cursos.png" alt="Pack Cursos">
+    <h3>Pack Cursos</h3>
+    <p class="stars">★★★★★</p>
+  </article>
+
+</section>
+
+<!-- =================== MODAL =================== -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-content">
+    <button id="modalClose" class="modal-close" aria-label="Cerrar modal">&times;</button>
+
+    <div class="modal-img-wrap">
+      <img id="modalImg" class="modal-img" alt="">
+    </div>
+
+    <div class="modal-body">
+      <h2 id="modalTitle"></h2>
+      <p class="stars-modal">★★★★★</p>
+      <p id="modalDesc"></p>
+
+      <div id="modalPlans" class="modal-plans"></div>
+
+      <div class="modal-cta">
+        <a id="whatsappBtn" target="_blank" rel="noopener" class="btn-wa">
+          <img src="assets/icons/whatsapp.png" alt="WhatsApp">Comprar por WhatsApp
         </a>
       </div>
     </div>
-  </section>
-
-  <!-- LOGOS SLIDER -->
-  <section class="logo-slider" aria-label="Servicios disponibles">
-    <div class="logo-track">
-      <img src="assets/logos/logo-gemini-ultra.png" alt="Gemini Ultra">
-      <img src="assets/logos/logo-gemini-pro.png" alt="Gemini Pro">
-      <img src="assets/logos/logo-chatgpt-plus. png" alt="ChatGPT Plus">
-      <img src="assets/logos/logo-perplexity-pro.png" alt="Perplexity Pro">
-      <img src="assets/logos/logo-canva-pro.png" alt="Canva Pro">
-      <img src="assets/logos/logo-github-pro.png" alt="GitHub Pro">
-      <img src="assets/logos/logo-figma. png" alt="Figma">
-      <img src="assets/logos/logo-spotify.png" alt="Spotify">
-      <img src="assets/logos/logo-gemini-ultra.png" alt="">
-      <img src="assets/logos/logo-gemini-pro. png" alt="">
-      <img src="assets/logos/logo-chatgpt-plus.png" alt="">
-      <img src="assets/logos/logo-perplexity-pro. png" alt="">
-      <img src="assets/logos/logo-canva-pro.png" alt="">
-      <img src="assets/logos/logo-github-pro.png" alt="">
-      <img src="assets/logos/logo-figma. png" alt="">
-      <img src="assets/logos/logo-spotify.png" alt="">
-    </div>
-  </section>
-
-  <!-- BUSCADOR -->
-  <section class="search-section">
-    <input type="text" id="searchInput" class="search-input" placeholder="Buscar servicio..." autocomplete="off">
-  </section>
-
-  <!-- CATEGORÍAS -->
-  <section class="categories">
-    <button class="category active" data-category="todos">Todos</button>
-    <button class="category" data-category="ia">IA</button>
-    <button class="category" data-category="edicion">Edición</button>
-    <button class="category" data-category="desarrollo">Desarrollo</button>
-    <button class="category" data-category="musica">Música</button>
-    <button class="category" data-category="cursos">Cursos</button>
-  </section>
-
-  <!-- PRODUCTOS -->
-  <section id="productos" class="cards-grid">
-    <article class="card" data-category="ia" data-product="Gemini Ultra" data-img="assets/images/gemini-ultra.png" data-description="La IA más avanzada de Google:  generación de video ilimitada, análisis profundo, multimodal y ultra veloz." data-plan1="1 Mes|35|12" data-plan2="1 Año|199|69">
-      <img src="assets/images/gemini-ultra.png" alt="Gemini Ultra">
-      <h3>Gemini Ultra</h3>
-      <p class="stars">★★★★★</p>
-    </article>
-    <article class="card" data-category="ia" data-product="Gemini Pro" data-img="assets/images/gemini-pro.png" data-description="Incluye 2TB en Drive, NotebookLM, Whisk, Veo3 y funciones avanzadas de IA multimodal." data-plan1="1 Mes|5|2" data-plan2="1 Año|25|9. 90">
-      <img src="assets/images/gemini-pro.png" alt="Gemini Pro">
-      <h3>Gemini Pro</h3>
-      <p class="stars">★★★★★</p>
-    </article>
-    <article class="card" data-category="ia" data-product="ChatGPT Plus" data-img="assets/images/chatgpt-plus.png" data-description="Acceso a GPT-4.1 y GPT-5. 1, análisis de datos y funciones avanzadas." data-plan1="1 Mes|20|7" data-plan2="1 Año|99|29.90">
-      <img src="assets/images/chatgpt-plus.png" alt="ChatGPT Plus">
-      <h3>ChatGPT Plus</h3>
-      <p class="stars">★★★★★</p>
-    </article>
-    <article class="card" data-category="ia" data-product="Perplexity Pro" data-img="assets/images/perplexity-pro.png" data-description="Todas las IA en una sola plataforma con análisis documental avanzado." data-plan1="1 Mes|5|2" data-plan2="1 Año|25|9.90">
-      <img src="assets/images/perplexity-pro.png" alt="Perplexity Pro">
-      <h3>Perplexity Pro</h3>
-      <p class="stars">★★★★★</p>
-    </article>
-    <article class="card" data-category="edicion" data-product="Canva Pro" data-img="assets/images/canva-pro.png" data-description="Plantillas premium, removedor de fondo y herramientas IA." data-plan1="1 Mes|5|2" data-plan2="1 Año|15|6">
-      <img src="assets/images/canva-pro. png" alt="Canva Pro">
-      <h3>Canva Pro</h3>
-      <p class="stars">★★★★★</p>
-    </article>
-    <article class="card" data-category="desarrollo" data-product="GitHub Pro" data-img="assets/images/github-pro. png" data-description="Repositorios privados ilimitados y herramientas avanzadas." data-plan1="2 Años|149|49">
-      <img src="assets/images/github-pro.png" alt="GitHub Pro">
-      <h3>GitHub Pro</h3>
-      <p class="stars">★★★★★</p>
-    </article>
-    <article class="card" data-category="desarrollo" data-product="Figma" data-img="assets/images/figma. png" data-description="Diseño colaborativo profesional y prototipado avanzado." data-plan1="2 Años|119|36">
-      <img src="assets/images/figma.png" alt="Figma">
-      <h3>Figma</h3>
-      <p class="stars">★★★★★</p>
-    </article>
-    <article class="card" data-category="musica" data-product="Spotify" data-img="assets/images/spotify.png" data-description="Spotify Premium sin anuncios y música en alta calidad." data-plan1="1 Mes|8|3" data-plan2="3 Meses|20|7">
-      <img src="assets/images/spotify.png" alt="Spotify">
-      <h3>Spotify</h3>
-      <p class="stars">★★★★★</p>
-    </article>
-    <article class="card" data-category="cursos" data-product="Pack Cursos" data-img="assets/images/pack-cursos. png" data-description="Pack completo de cursos de herramientas digitales." data-plan1="1 Curso|19. 90|6" data-plan2="Todos|49.90|14. 90">
-      <img src="assets/images/pack-cursos.png" alt="Pack Cursos">
-      <h3>Pack Cursos</h3>
-      <p class="stars">★★★★★</p>
-    </article>
-  </section>
-
-  <!-- MODAL -->
-  <div id="modal" class="modal" aria-hidden="true">
-    <div class="modal-content">
-      <button id="modalClose" class="modal-close" aria-label="Cerrar">&times;</button>
-      <div class="modal-img-wrap">
-        <img id="modalImg" class="modal-img" alt="">
-      </div>
-      <div class="modal-body">
-        <h2 id="modalTitle"></h2>
-        <p class="stars-modal">★★★★★</p>
-        <p id="modalDesc"></p>
-        <div id="modalPlans" class="modal-plans"></div>
-        <div class="modal-cta">
-          <a id="whatsappBtn" target="_blank" rel="noopener" class="btn-wa">
-            <img src="assets/icons/whatsapp.png" alt="">Comprar por WhatsApp
-          </a>
-        </div>
-      </div>
-    </div>
   </div>
+</div>
 
-  <!-- CONTACTO -->
-  <section id="contacto" class="contact">
-    <h2>¿Tienes dudas?</h2>
-    <a href="https://api.whatsapp.com/send?phone=51941797198&text=Hola,+tengo+una+consulta" class="btn-wa" target="_blank" rel="noopener">
-      <img src="assets/icons/whatsapp.png" alt="">Contactar por WhatsApp
-    </a>
-  </section>
+<!-- =================== CONTACTO =================== -->
+<section id="contacto" class="contact">
+  <h2>¿Tienes dudas?</h2>
+  <a href="https://api.whatsapp.com/send?phone=51941797198&text=Hola,+tengo+una+consulta" class="btn-wa" target="_blank" rel="noopener">
+    <img src="assets/icons/whatsapp.png" alt="WhatsApp">Contactar por WhatsApp
+  </a>
+</section>
 
 </main>
 
-<!-- FOOTER -->
+<!-- =================== FOOTER =================== -->
 <footer class="footer">
-  <p>© 2025 Reiven Store.  Todos los derechos reservados.</p>
+  <p>© 2025 Reiven Store. Todos los derechos reservados.</p>
 </footer>
 
+<!-- =================== JS =================== -->
 <script src="script.js" defer></script>
+
 </body>
 </html>
