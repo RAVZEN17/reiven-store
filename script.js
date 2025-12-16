@@ -1,11 +1,11 @@
 /* =========================================================
    REIVEN STORE — SCRIPT.JS
-   Optimizado, limpio, funcional
+   Optimizado, limpio, responsivo
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // === LOADER ===
+  /* ===================== LOADER ===================== */
   const loader = document.getElementById("loader");
   const loaderText = document.getElementById("loader-text");
   const loaderBar = document.querySelector(".loader-bar");
@@ -15,8 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     progress += Math.floor(Math.random() * 20) + 15;
     if (progress >= 100) progress = 100;
 
-    loaderText. textContent = `Cargando ${progress}%`;
-    loaderBar. style.width = `${progress}%`;
+    loaderText.textContent = `Cargando ${progress}%`;
+    loaderBar.style.width = `${progress}%`;
 
     if (progress === 100) {
       clearInterval(loadInterval);
@@ -25,11 +25,11 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => loader.remove(), 300);
       }, 200);
     }
-  }, 100);
+  }, 110);
 
-  // === NAV TOGGLE ===
+  /* ===================== NAV TOGGLE (MÓVIL) ===================== */
   const navToggle = document.querySelector(".nav-toggle");
-  const topbarNav = document. getElementById("topbar-nav");
+  const topbarNav = document.getElementById("topbar-nav");
 
   if (navToggle && topbarNav) {
     navToggle.addEventListener("click", () => {
@@ -39,33 +39,33 @@ document.addEventListener("DOMContentLoaded", () => {
 
     topbarNav.querySelectorAll("a").forEach(link => {
       link.addEventListener("click", () => {
-        topbarNav.classList. remove("open");
+        topbarNav.classList.remove("open");
         navToggle.setAttribute("aria-expanded", "false");
       });
     });
   }
 
-  // === CATEGORY FILTER ===
-  const categoryBtns = document. querySelectorAll(". category");
+  /* ===================== FILTRO POR CATEGORÍA ===================== */
+  const categoryButtons = document.querySelectorAll(".category");
   const cards = document.querySelectorAll(".card");
 
-  categoryBtns.forEach(btn => {
+  categoryButtons.forEach(btn => {
     btn.addEventListener("click", () => {
-      categoryBtns.forEach(b => b.classList. remove("active"));
-      btn.classList. add("active");
+      categoryButtons.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
 
-      const cat = btn.dataset.category;
+      const category = btn.dataset.category;
       cards.forEach(card => {
-        const show = cat === "todos" || card.dataset.category === cat;
-        card.style.display = show ? "block" : "none";
+        const match = category === "todos" || card.dataset.category === category;
+        card.style.display = match ? "block" : "none";
       });
     });
   });
 
-  // === SEARCH ===
+  /* ===================== BUSCADOR ===================== */
   const searchInput = document.getElementById("searchInput");
   if (searchInput) {
-    searchInput. addEventListener("input", () => {
+    searchInput.addEventListener("input", () => {
       const term = searchInput.value.toLowerCase();
       cards.forEach(card => {
         const title = card.querySelector("h3").textContent.toLowerCase();
@@ -74,44 +74,46 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // === MODAL ===
+  /* ===================== MODAL ===================== */
   const modal = document.getElementById("modal");
   const modalImg = document.getElementById("modalImg");
   const modalTitle = document.getElementById("modalTitle");
   const modalDesc = document.getElementById("modalDesc");
-  const modalPlans = document. getElementById("modalPlans");
+  const modalPlans = document.getElementById("modalPlans");
   const modalClose = document.getElementById("modalClose");
   const whatsappBtn = document.getElementById("whatsappBtn");
 
   const formatPrice = (soles, usd) => {
-    const penSpan = `<span class="pen">S/ ${soles}</span>`;
-    const usdSpan = usd ? ` / <span class="usd">$${usd}</span>` : "";
-    return penSpan + usdSpan;
+    const pen = `<span class="pen">S/ ${soles}</span>`;
+    const usdPart = usd ? ` / <span class="usd">$${usd}</span>` : "";
+    return pen + usdPart;
   };
 
   const openModal = (card) => {
-    modalImg.src = card. dataset.img;
-    modalImg.alt = card. dataset.product;
+    modalImg.src = card.dataset.img;
+    modalImg.alt = card.dataset.product;
     modalTitle.textContent = card.dataset.product;
-    modalDesc. textContent = card. dataset.description;
+    modalDesc.textContent = card.dataset.description;
 
     modalPlans.innerHTML = "";
     for (let i = 1; i <= 5; i++) {
       const plan = card.dataset[`plan${i}`];
-      if (! plan) continue;
-      const [label, soles, usd] = plan.split("|");
-      modalPlans.innerHTML += `
+      if (!plan) continue;
+      const [label, solesRaw, usdRaw] = plan.split("|");
+      const soles = solesRaw.replace(/[^\d.,]/g, "");
+      const usd = usdRaw ? usdRaw.replace(/[^\d.,]/g, "") : "";
+      modalPlans.insertAdjacentHTML("beforeend", `
         <div class="plan">
           <span class="label">${label}</span>
           <span class="price">${formatPrice(soles, usd)}</span>
         </div>
-      `;
+      `);
     }
 
-    whatsappBtn.href = `https://api.whatsapp. com/send?phone=51941797198&text=${encodeURIComponent(`Hola, quiero comprar:  ${card.dataset. product}`)}`;
+    whatsappBtn.href = `https://api.whatsapp.com/send?phone=51941797198&text=${encodeURIComponent(`Hola, quiero comprar: ${card.dataset.product}`)}`;
 
     modal.style.display = "flex";
-    document.body.style. overflow = "hidden";
+    document.body.style.overflow = "hidden";
   };
 
   const closeModal = () => {
@@ -119,7 +121,10 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.style.overflow = "";
   };
 
-  cards.forEach(card => card.addEventListener("click", () => openModal(card)));
+  document.querySelectorAll(".card").forEach(card => {
+    card.addEventListener("click", () => openModal(card));
+  });
+
   modalClose.addEventListener("click", closeModal);
   modal.addEventListener("click", e => { if (e.target === modal) closeModal(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape") closeModal(); });
